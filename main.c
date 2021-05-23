@@ -5,6 +5,7 @@ int	main(int ac, char **av)
 	t_stack *stack_a;
 	t_stack *stack_b;
 
+	stack_a = NULL;
 	if (ft_check_arg(ac, av))
 	{
 		printf("Error\n");
@@ -18,6 +19,7 @@ int	main(int ac, char **av)
 	}
 	// lancer les actions :
 //	ft_pushswap(stack_a, stack_b);
+	//free_lst(stack_a);
 	puts("GG");
 	return (0);
 }
