@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astridgaultier <astridgaultier@student.    +#+  +:+       +#+        */
+/*   By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 16:39:26 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/05/23 20:24:55 by astridgault      ###   ########.fr       */
+/*   Updated: 2021/05/25 16:16:24 by asgaulti@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 long long	ft_atoll(const char *str)
 {
@@ -38,14 +38,14 @@ long long	ft_atoll(const char *str)
 	return (result * sign);
 }
 
-int	ft_check_doublon(long long nbr, int index, t_stack *stack_a)
+int	ft_check_doublon(long long nbr, t_stack *stack_a)
 {
 	// if (index == 1)
 	// 	return (1); // ne pas comparer le premier nbr...
 	while (stack_a)
 	{
-		//printf("nbr = %lld  el = %d \n", nbr, stack_a->element);
-		if (nbr == stack_a->element)
+		//printf("nbr = %lld  el = %d \n", nbr, stack_a->el);
+		if (nbr == stack_a->el)
 			return (1);
 		stack_a = stack_a->next;
 	}
@@ -58,7 +58,7 @@ int	ft_check_arg(int ac, char **av)
 	int	j;
 
 	i = 1;
-	if (ac <= 2)
+	if (ac < 2)
 		return (1);
 	while (i < ac)
 	{
@@ -78,9 +78,15 @@ int	ft_check_arg(int ac, char **av)
 
 void		free_lst(t_stack *stack_a)
 {
-	while (stack_a) // ou stack_a->element different de null?
+	t_stack	*tmp;
+	
+	while (stack_a) // ou stack_a->el different de null?
 	{
+		tmp = stack_a->next;
+		//printf("stack_a = %d\n", stack_a->el);
 		free(stack_a);
-		stack_a = stack_a->next;
+		//puts("che3");
+		stack_a = tmp;
+		//puts("che4");
 	}
 }
