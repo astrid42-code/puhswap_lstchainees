@@ -6,11 +6,13 @@
 /*   By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:33:58 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/05/25 18:14:57 by asgaulti@st      ###   ########.fr       */
+/*   Updated: 2021/05/26 10:54:07 by asgaulti@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+//void	ft_rotate()
 
 void	ft_rotate_a(t_stack **a)
 {
@@ -20,22 +22,22 @@ void	ft_rotate_a(t_stack **a)
 	tmp = *a; 
 	//printf("tmp_el = %d\n", tmp->el);
 	new = *a;
+	//puts("che");
 	while (new->next)
-		new = new->next;
-	{//printf("new_el = %d\n", new->el);
+	{	new = new->next;
+		printf("new_el = %d\n", new->el);
 	}
 	new->next = tmp; // tmp etant le 1er el
 	*a = (*a)->next;
-	//puts("che");
 	tmp->next = NULL;
 	tmp = *a;
-/*	while (tmp)
+	while (tmp)
 	{
 			printf("A = %d\n", tmp->el);
 		tmp = tmp->next;
 	}
-*/	printf("ra\n");
-// return la list a
+	printf("ra\n");
+	//return (tmp);
 }
 
 void	ft_rotate_b(t_stack **b)
