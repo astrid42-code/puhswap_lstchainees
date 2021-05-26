@@ -6,7 +6,7 @@
 /*   By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:50:16 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/05/26 11:43:44 by asgaulti@st      ###   ########.fr       */
+/*   Updated: 2021/05/26 16:31:33 by asgaulti@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,12 @@ void		ft_rotate_a(t_stack **a);
 void		ft_rotate_b(t_stack **b);
 void		ft_rotate_ab(t_stack **a, t_stack **b);
 
-void 		ft_push_a(int ac, t_stack *stack_a);
-void 		ft_push_b(int ac, t_stack *stack_a);
+void 		ft_push_a(t_stack **stack_a);
+void 		ft_push_b(t_stack **stack_a);
 
+void		ft_rev_rot_a(t_stack **a);
+void		ft_rev_rot_b(t_stack **b);
+void		ft_rev_rot_ab(t_stack **a, t_stack **b);
 //t_first		*ft_init_a(int ac, char **av);
 
 #endif

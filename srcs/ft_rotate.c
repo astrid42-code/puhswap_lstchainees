@@ -6,13 +6,11 @@
 /*   By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:33:58 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/05/26 10:54:07 by asgaulti@st      ###   ########.fr       */
+/*   Updated: 2021/05/26 16:02:59 by asgaulti@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-//void	ft_rotate()
 
 void	ft_rotate_a(t_stack **a)
 {
@@ -25,18 +23,18 @@ void	ft_rotate_a(t_stack **a)
 	//puts("che");
 	while (new->next)
 	{	new = new->next;
-		printf("new_el = %d\n", new->el);
+		//printf("new_el = %d\n", new->el);
 	}
 	new->next = tmp; // tmp etant le 1er el
 	*a = (*a)->next;
 	tmp->next = NULL;
-	tmp = *a;
+/*	tmp = *a;
 	while (tmp)
 	{
 			printf("A = %d\n", tmp->el);
 		tmp = tmp->next;
 	}
-	printf("ra\n");
+*/	printf("ra\n");
 	//return (tmp);
 }
 
@@ -48,8 +46,10 @@ void	ft_rotate_b(t_stack **b)
 	tmp = *b; 
 	printf("tmp_el = %d\n", tmp->el);
 	new = *b;
-	while (new)
-		new = new->next;
+	while (new->next)
+	{	new = new->next;
+		printf("new_el = %d\n", new->el);
+	}
 	new->next = tmp; // tmp etant le 1er el
 	*b = (*b)->next;
 	tmp->next = NULL;	
@@ -64,10 +64,11 @@ void	ft_rotate_ab(t_stack **a, t_stack **b)
 	t_stack *new_b;
 	
 	tmp_a = *a; 
-	printf("tmp_el = %d\n", tmp_a->el);
 	new_a = *a;
 	while (new_a)
-		new_a = new_a->next;
+	{	new_a = new_a->next;
+	printf("tmp_el = %d\n", tmp_a->el);
+	}
 	new_a->next = tmp_a;
 	*a = (*a)->next;
 	tmp_a->next = NULL;

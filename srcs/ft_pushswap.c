@@ -6,7 +6,7 @@
 /*   By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 10:38:26 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/05/26 11:24:37 by asgaulti@st      ###   ########.fr       */
+/*   Updated: 2021/05/26 15:15:30 by asgaulti@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ void	ft_three(t_stack **a)
 		ft_swap_a(*a);
 		return ;
 	}
-/*	if ((*a)->el > (*a)->next->el && (*a)->el > (*a)->next->next->el && (*a)->next->el > (*a)->next->next->el)
+	if ((*a)->el > (*a)->next->el && (*a)->el > (*a)->next->next->el && (*a)->next->el > (*a)->next->next->el)
 	{
-		ft_swap_a(a);
+		ft_swap_a(*a);
 		ft_rev_rot_a(a);
 		return ;
 	}
-*/	if ((*a)->el > (*a)->next->el && (*a)->el > (*a)->next->next->el && (*a)->next->el < (*a)->next->next->el)
+	if ((*a)->el > (*a)->next->el && (*a)->el > (*a)->next->next->el && (*a)->next->el < (*a)->next->next->el)
 	{
 		ft_rotate_a(a);
 		return ;
@@ -69,13 +69,12 @@ void	ft_three(t_stack **a)
 		ft_rotate_a(a);
 		return ;
 	}
-/*	if ((*a)->el < (*a)->next->el && (*a)->el < (*a)->next->next->el)
+	if ((*a)->el < (*a)->next->el && (*a)->el > (*a)->next->next->el)
 	{
-		ft_swap_a(*a);
 		ft_rev_rot_a(a);
 		return ;
 	}
-*/	else
+	else
 		return ;	
 }
 /*

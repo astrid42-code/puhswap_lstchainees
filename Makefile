@@ -6,14 +6,14 @@
 #    By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/24 13:51:00 by asgaulti@st       #+#    #+#              #
-#    Updated: 2021/05/26 11:32:27 by asgaulti@st      ###   ########.fr        #
+#    Updated: 2021/05/26 14:59:18 by asgaulti@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	push_swap
 
 SRCS	=	ft_create.c ft_utils.c main.c ft_pushswap.c ft_swap.c ft_lst_utils.c \
-			ft_rotate.c 
+			ft_rotate.c ft_reverse_rotate.c 
 
 PATH_SRCS = srcs/
 
