@@ -6,7 +6,7 @@
 /*   By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:50:16 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/05/26 17:03:19 by asgaulti@st      ###   ########.fr       */
+/*   Updated: 2021/05/27 16:51:15 by asgaulti@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,9 @@ long long	ft_atoll(const char *str);
 
 void		ft_two(t_stack **a);
 void		ft_three(t_stack **a);
-void		ft_undersix(t_stack **a, t_stack **b);
+void		ft_undersix(int ac, t_stack **a, t_stack **b);
+void		ft_four(t_stack **a, t_stack **b);
+void		ft_five(t_stack **a, t_stack **b);
 //void		ft_sort(t_stack *stack_a, t_stack *stack_b);
 
 // protos lst

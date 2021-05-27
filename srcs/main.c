@@ -6,7 +6,7 @@
 /*   By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:50:06 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/05/26 16:02:02 by asgaulti@st      ###   ########.fr       */
+/*   Updated: 2021/05/27 11:10:47 by asgaulti@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,15 @@ int	main(int ac, char **av)
 	}
 	// lancer les actions :
 	ft_pushswap(&stack_a, &stack_b, ac);
-/*	while (stack_a)
+	while (stack_a)
 	{
 		printf("a = %d\n", stack_a->el);
 		stack_a = stack_a->next;
 	}
 //puts("che2");
-*/	free_lst(stack_a);
+	free_lst(stack_a);
+	if (stack_b)
+		free_lst(stack_b);
 	puts("GG");
 	return (0);
 }
