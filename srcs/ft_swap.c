@@ -6,7 +6,7 @@
 /*   By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:18:42 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/05/25 17:59:44 by asgaulti@st      ###   ########.fr       */
+/*   Updated: 2021/05/27 17:24:26 by asgaulti@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void    ft_swap_b(t_stack *b)
         return ;
     ft_swap(&(b->el), &(b->next->el));
     printf("sb/n");
-    printf("b = %d  b_next = %d\n", (b->el), (b->next->el));
+    //printf("b = %d  b_next = %d\n", (b->el), (b->next->el));
     //swap la valeur en haut de la pile b avec celle d avant 
     //+ imprimer l action sb
 }

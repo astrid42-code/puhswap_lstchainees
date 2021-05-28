@@ -6,7 +6,7 @@
 /*   By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 16:39:26 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/05/26 11:43:38 by asgaulti@st      ###   ########.fr       */
+/*   Updated: 2021/05/28 18:37:21 by asgaulti@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,3 +90,40 @@ void		free_lst(t_stack *stack_a)
 		//puts("che4");
 	}
 }
+
+int	ft_search_min(t_stack *stack)
+{
+	int 	i;
+//	t_stack	**tmp;
+	int tmp;
+
+	i = 0;
+	tmp = stack->el;
+//	printf("tmp = %d\n", tmp);
+	while (stack->next != 0)
+	{
+		if (tmp > stack->el)
+		{	
+			tmp = stack->el;
+			//i++;
+		}
+		if (tmp < stack->el)
+			i++;
+		stack = stack->next;
+	}
+	printf("tmp = %d\nel = %d\ni = %d\n", tmp, stack->el, i);
+	return (i);
+}
+
+int	ft_is_sort(t_stack *stack)
+{
+	while (stack)
+	{
+		if (stack->el < stack->next->el)
+			stack = stack->next;
+		else if (stack->el > stack->next->el)
+			return (1);
+	}
+	return (0);
+}
+ 

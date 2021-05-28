@@ -6,7 +6,7 @@
 /*   By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 10:38:26 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/05/27 16:54:22 by asgaulti@st      ###   ########.fr       */
+/*   Updated: 2021/05/28 18:37:25 by asgaulti@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void    ft_pushswap(t_stack **stack_a, t_stack **stack_b, int ac)
     (void)stack_b;
 
     count = ac - 1;
-    if (count < 6)
+    if (count < 5)
     {
         if (count == 1)
             return ;
@@ -26,10 +26,12 @@ void    ft_pushswap(t_stack **stack_a, t_stack **stack_b, int ac)
             ft_two(stack_a);
         else if (count == 3)
             ft_three(stack_a);
-        else if (count == 4 || count == 5)
-            ft_undersix(ac, stack_a, stack_b);
+        else if (count == 4)
+            ft_four(stack_a, stack_b);
     }
-/*    else
+	else if (count < 50)
+		ft_under_fifty(stack_a, stack_b);
+/*	else
         ft_sort(stack_a, stack_b);
 */
 }
@@ -77,21 +79,17 @@ void	ft_three(t_stack **a)
 	else
 		return ;	
 }
-
+/*
 void		ft_undersix(int ac, t_stack **a, t_stack **b)
 {
-    if (ac - 1 == 4)
-	{	
-		ft_push_b(a, b);
-		ft_three(a);
-		ft_push_a(a, b);
-		ft_four(a, b);
-	}
-	if (ac - 1 == 5)
+	
+	else if (ac - 1 == 5)
 	{
 		ft_push_b(a, b);
 		ft_push_b(a, b);
 		ft_three(a);
+		//if ((*b)->el > (*b)->next->el)
+		//	ft_swap_b(*b);
 		ft_push_a(a, b);
 		ft_four(a, b);
 		ft_push_a(a, b);
@@ -99,21 +97,18 @@ void		ft_undersix(int ac, t_stack **a, t_stack **b)
 	}
 	return ;
 }
-
+*/
 void	ft_four(t_stack **a, t_stack **b)
 {
+	ft_push_b(a, b);
+	ft_three(a);
+	ft_push_a(a, b);
 	if ((*a)->el < (*a)->next->el)
 		return ;
 	else if ((*a)->el > (*a)->next->next->next->el)
-	{
 		ft_rotate_a(a);
-		//return ;
-	}
 	else if ((*a)->el > (*a)->next->el && (*a)->el < (*a)->next->next->el)
-	{
 		ft_swap_a(*a);
-		//return ;
-	}
 	else if ((*a)->el > (*a)->next->next->el && 
 					(*a)->el < (*a)->next->next->next->el)
 	{
@@ -121,12 +116,10 @@ void	ft_four(t_stack **a, t_stack **b)
 		ft_push_b(a, b);
 		ft_three(a);
 		ft_push_a(a, b);
-		//return ;
 	}
-	// un seul return a la fin?
 	return ;
 }
-
+/*
 void	ft_five(t_stack **a, t_stack **b)
 {
 	if ((*a)->el < (*a)->next->el)
@@ -152,4 +145,34 @@ void	ft_five(t_stack **a, t_stack **b)
 		ft_push_a(a, b);
 	}
 	return ;
+}
+*/
+void	ft_under_fifty(t_stack **a, t_stack **b)
+{
+	int i;
+	int middle;
+
+	middle = ft_stacksize(*a) / 2; // ou juste faire ac - 1!
+	//printf("m = %d\n", middle);
+	while (ft_stacksize(*a) > 3/* || ft_is_sort(a) == 1*/)
+	{
+		i = ft_search_min(*a); //(fct qui renvoie la position du plus petit nbr)
+		//printf("i3 = %d\n", i);
+		if (i == 0)
+			ft_push_b(a, b); 
+		else if (i <= middle) //(place dans 1ere moitie)
+			ft_rotate_a(a);
+		else
+		{
+			
+			ft_rev_rot_a(a);
+		}
+	}
+	ft_three(a); // ranger les trois nombres restants
+	while (*b)
+	{
+		// tq il reste des nombres dans b, je les push dans a ( ils rentrent dans l'ordre du plus grand au plus petit)
+		ft_push_a(a, b);
+	}
+//		puts("che");
 }
