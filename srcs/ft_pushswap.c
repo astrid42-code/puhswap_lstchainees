@@ -6,7 +6,7 @@
 /*   By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 10:38:26 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/05/28 18:37:25 by asgaulti@st      ###   ########.fr       */
+/*   Updated: 2021/05/30 13:51:31 by asgaulti@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,11 +152,15 @@ void	ft_under_fifty(t_stack **a, t_stack **b)
 	int i;
 	int middle;
 
-	middle = ft_stacksize(*a) / 2; // ou juste faire ac - 1!
+	 // ou juste faire ac - 1!
 	//printf("m = %d\n", middle);
+	
 	while (ft_stacksize(*a) > 3/* || ft_is_sort(a) == 1*/)
 	{
+		middle = ft_stacksize(*a) / 2;
+		//printf("el1 = %d\n", (*a)->el);
 		i = ft_search_min(*a); //(fct qui renvoie la position du plus petit nbr)
+		//printf("middle = %d i = %d\n", middle, i);
 		//printf("i3 = %d\n", i);
 		if (i == 0)
 			ft_push_b(a, b); 
@@ -164,7 +168,6 @@ void	ft_under_fifty(t_stack **a, t_stack **b)
 			ft_rotate_a(a);
 		else
 		{
-			
 			ft_rev_rot_a(a);
 		}
 	}

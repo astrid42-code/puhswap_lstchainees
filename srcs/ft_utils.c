@@ -6,7 +6,7 @@
 /*   By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 16:39:26 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/05/28 18:37:21 by asgaulti@st      ###   ########.fr       */
+/*   Updated: 2021/05/30 13:43:34 by asgaulti@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,26 +93,29 @@ void		free_lst(t_stack *stack_a)
 
 int	ft_search_min(t_stack *stack)
 {
-	int 	i;
-//	t_stack	**tmp;
+	int count;
 	int tmp;
+	int	pos;
 
-	i = 0;
-	tmp = stack->el;
-//	printf("tmp = %d\n", tmp);
-	while (stack->next != 0)
+	count = 0;
+	//j = ft_stacksize(stack);
+	//printf("j = %d\n", j);
+	pos = 0;
+	tmp = INT_MAX;
+	//printf("tmp1 = %d\n", tmp);
+	while (stack)
 	{
-		if (tmp > stack->el)
+		if (tmp >= stack->el)
 		{	
 			tmp = stack->el;
-			//i++;
+			pos = count;
 		}
-		if (tmp < stack->el)
-			i++;
+		count++;	
 		stack = stack->next;
 	}
-	printf("tmp = %d\nel = %d\ni = %d\n", tmp, stack->el, i);
-	return (i);
+	//printf("c = %d\np = %d\n", count, pos);
+	//printf("tmp = %d\nel = %d\npos = %d\n", tmp, stack->el, pos);
+	return (pos);
 }
 
 int	ft_is_sort(t_stack *stack)
