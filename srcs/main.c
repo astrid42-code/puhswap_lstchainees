@@ -31,7 +31,6 @@ int	main(int ac, char **av)
 		printf("Error\n");
 		return (1);
 	}
-	// lancer les actions :
 	ft_pushswap(&stack_a, &stack_b, ac);
 	while (stack_a)
 	{
