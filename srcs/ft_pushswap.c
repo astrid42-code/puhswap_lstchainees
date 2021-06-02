@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pushswap.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astridgaultier <astridgaultier@student.    +#+  +:+       +#+        */
+/*   By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 10:38:26 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/06/01 14:22:30 by astridgault      ###   ########.fr       */
+/*   Updated: 2021/06/02 17:59:05 by asgaulti@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void    ft_pushswap(t_stack **stack_a, t_stack **stack_b, int ac)
 {
     int count;
-    (void)stack_b;
 
     count = ac - 1;
     if (count < 5)
@@ -29,11 +28,14 @@ void    ft_pushswap(t_stack **stack_a, t_stack **stack_b, int ac)
         else if (count == 4)
             ft_four(stack_a, stack_b);
     }
-	else if (count < 50)
+	else
+	//else if (count < 50)
 		ft_under_fifty(stack_a, stack_b);
 /*	else
+	{
         ft_sort(stack_a, stack_b, count);
-*/
+	}
+	*/
 }
 
 void	ft_two(t_stack **a)
@@ -182,6 +184,8 @@ void	ft_under_fifty(t_stack **a, t_stack **b)
 
 void	ft_sort(t_stack **a, t_stack **b, int count)
 {
+	(void)b;
+
 	//lecture et attribution index :
-	ft_search_index(a, count);
+	ft_search_index(*a, count);
 }

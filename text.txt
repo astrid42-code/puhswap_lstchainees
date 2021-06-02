@@ -1,0 +1,525 @@
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+rra
+pb
+rra
+pb
+rra
+pb
+rra
+pb
+rra
+pb
+rra
+pb
+rra
+pb
+rra
+pb
+rra
+pb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+rra
+pb
+rra
+pb
+rra
+pb
+rra
+pb
+rra
+pb
+rra
+pb
+rra
+pb
+rra
+pb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+rra
+pb
+rra
+pb
+rra
+rra
+pb
+pb
+rra
+pb
+rra
+rra
+pb
+pb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+ra
+pb
+ra
+pb
+rra
+rra
+pb
+pb
+pb
+pb
+pb
+rra
+pb
+rra
+rra
+pb
+pb
+rra
+pb
+rra
+pb
+rra
+pb
+rra
+rra
+rra
+rra
+pb
+pb
+ra
+pb
+rra
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+rra
+pb
+rra
+pb
+rra
+pb
+rra
+rra
+pb
+rra
+rra
+pb
+rra
+pb
+ra
+pb
+rra
+pb
+pb
+pb
+ra
+ra
+ra
+ra
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+rra
+pb
+rra
+pb
+rra
+rra
+pb
+pb
+rra
+pb
+rra
+rra
+pb
+pb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+ra
+pb
+ra
+pb
+rra
+rra
+pb
+pb
+pb
+pb
+pb
+rra
+pb
+rra
+rra
+pb
+pb
+rra
+pb
+rra
+pb
+rra
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+rra
+pb
+rra
+pb
+rra
+pb
+rra
+rra
+pb
+rra
+rra
+pb
+rra
+pb
+ra
+pb
+rra
+pb
+pb
+ra
+ra
+ra
+ra
+pb
+rra
+rra
+rra
+pb
+ra
+pb
+rra
+pb
+pb
+ra
+ra
+pb
+rra
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+a = 1
+a = 2
+a = 3
+a = 4
+a = 5
+a = 6
+a = 7
+a = 8
+a = 9
+a = 10
+a = 11
+a = 12
+a = 13
+a = 14
+a = 15
+a = 16
+a = 17
+a = 18
+a = 19
+a = 21
+a = 22
+a = 23
+a = 24
+a = 25
+a = 26
+a = 27
+a = 28
+a = 29
+a = 41
+a = 42
+a = 43
+a = 45
+a = 46
+a = 47
+a = 48
+a = 49
+a = 50
+a = 51
+a = 52
+a = 53
+a = 54
+a = 55
+a = 56
+a = 57
+a = 58
+a = 59
+a = 90
+a = 91
+a = 92
+a = 93
+a = 94
+a = 95
+a = 96
+a = 97
+a = 98
+a = 99
+a = 102
+a = 110
+a = 121
+a = 122
+a = 123
+a = 124
+a = 125
+a = 126
+a = 127
+a = 128
+a = 129
+a = 141
+a = 142
+a = 143
+a = 145
+a = 146
+a = 147
+a = 148
+a = 149
+a = 150
+a = 151
+a = 152
+a = 153
+a = 154
+a = 155
+a = 190
+a = 191
+a = 192
+a = 193
+a = 194
+a = 195
+a = 196
+a = 197
+a = 198
+a = 199
+a = 254
+a = 258
+a = 265
+a = 297
+a = 561
+a = 581
+a = 591
+a = 1102
+a = 5117
+GG
