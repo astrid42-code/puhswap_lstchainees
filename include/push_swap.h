@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+        */
+/*   By: astridgaultier <astridgaultier@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:50:16 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/05/28 17:58:53 by asgaulti@st      ###   ########.fr       */
+/*   Updated: 2021/06/01 14:20:18 by astridgault      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,16 @@
 typedef struct s_stack
 {
 	int				el;
+	int				index;
 	struct s_stack	*next;
 }				t_stack;
-
+/*
 typedef struct s_first
 {
 	struct s_stack	*a;
 	struct s_stack	*b;
 }				t_first;
-
+*/
 // protos
 int			main(int ac, char **av);
 t_stack		*ft_create_lst(int ac, char **av, t_stack **stack_a);
@@ -52,7 +53,7 @@ void		ft_three(t_stack **a);
 void		ft_four(t_stack **a, t_stack **b);
 //void		ft_five(t_stack **a, t_stack **b);
 void		ft_under_fifty(t_stack **a, t_stack **b);
-//void		ft_sort(t_stack *stack_a, t_stack *stack_b);
+//void		ft_sort(t_stack **stack_a, t_stack **stack_b, int count);
 
 // protos lst
 int			ft_stacksize(t_stack *stack);

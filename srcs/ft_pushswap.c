@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pushswap.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+        */
+/*   By: astridgaultier <astridgaultier@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 10:38:26 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/05/30 13:51:31 by asgaulti@st      ###   ########.fr       */
+/*   Updated: 2021/06/01 14:22:30 by astridgault      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void    ft_pushswap(t_stack **stack_a, t_stack **stack_b, int ac)
 	else if (count < 50)
 		ft_under_fifty(stack_a, stack_b);
 /*	else
-        ft_sort(stack_a, stack_b);
+        ft_sort(stack_a, stack_b, count);
 */
 }
 
@@ -178,4 +178,10 @@ void	ft_under_fifty(t_stack **a, t_stack **b)
 		ft_push_a(a, b);
 	}
 //		puts("che");
+}
+
+void	ft_sort(t_stack **a, t_stack **b, int count)
+{
+	//lecture et attribution index :
+	ft_search_index(a, count);
 }

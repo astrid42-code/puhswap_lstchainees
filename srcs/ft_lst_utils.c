@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lst_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+        */
+/*   By: astridgaultier <astridgaultier@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 14:44:01 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/05/28 15:06:07 by asgaulti@st      ###   ########.fr       */
+/*   Updated: 2021/06/01 14:27:06 by astridgault      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,31 @@ int	ft_stacksize(t_stack *stack)
 		i++;
 	}
 	return (i);
+}
+
+int	ft_search_index(t_stack **a, int count)
+{
+	int tmp;
+	int	pos;
+
+	//j = ft_stacksize(stack);
+	//printf("j = %d\n", j);
+	pos = 0;
+	tmp = INT_MAX;
+	//printf("tmp1 = %d\n", tmp);
+	while (a->index != count)
+	{
+		while (a)
+		{
+			if (a->el < a->next->el)
+			{	
+				a->index = pos;
+			}
+			a = a->next;
+		}
+		pos++;	
+	}
+	//printf("c = %d\np = %d\n", count, pos);
+	//printf("tmp = %d\nel = %d\npos = %d\n", tmp, stack->el, pos);
+	//return (a);
 }
