@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+         #
+#    By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/24 13:51:00 by asgaulti@st       #+#    #+#              #
-#    Updated: 2021/05/28 18:02:28 by asgaulti@st      ###   ########.fr        #
+#    Updated: 2021/06/02 18:10:18 by asgaulti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ PATH_SRCS = srcs/
 
 OBJS	=	${addprefix ${PATH_SRCS}, ${SRCS:.c=.o}}
 
-CC		=	clang-9
+CC		=	clang
 RM		=	rm -f
 CFLAGS	=	-Wall -Werror -Wextra
 
