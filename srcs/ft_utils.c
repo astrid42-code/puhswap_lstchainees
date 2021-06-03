@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+        */
+/*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 16:39:26 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/05/30 13:43:34 by asgaulti@st      ###   ########.fr       */
+/*   Updated: 2021/06/03 16:08:59 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	ft_check_arg(int ac, char **av)
 		j = 0;
 		while (av[i][j])
 		{
-			if (av[i][j] < 48 || av[i][j] > 57)
+			if (!((av[i][j] >= 48 && av[i][j] <= 57) || av[i][j] == '-'))
 				return (1);
 			j++;
 		}
@@ -120,6 +120,7 @@ int	ft_search_min(t_stack *stack)
 
 int	ft_is_sort(t_stack *stack)
 {
+	//printf("che\n");
 	while (stack)
 	{
 		if (stack->el < stack->next->el)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_reverse_rotate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+        */
+/*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 14:35:51 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/05/26 16:30:53 by asgaulti@st      ###   ########.fr       */
+/*   Updated: 2021/06/03 11:33:38 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	ft_rev_rot_a(t_stack **a)
 	tmp = new->next;
 	new->next = NULL;
 	*a = tmp;
-	tmp= *a;
-/*	while (tmp)
+/*	tmp= *a;
+	while (tmp)
 	{
 			printf("A = %d\n", tmp->el);
 		tmp = tmp->next;

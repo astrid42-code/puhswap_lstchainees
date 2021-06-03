@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+        */
+/*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:50:16 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/06/02 17:50:43 by asgaulti@st      ###   ########.fr       */
+/*   Updated: 2021/06/03 16:18:55 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void		ft_sort(t_stack **stack_a, t_stack **stack_b, int count);
 
 // protos lst
 int			ft_stacksize(t_stack *stack);
-void		ft_search_index(t_stack *a, int count);
+void		ft_search_index(t_stack **a, int count);
 
 //void		ft_lstadd_back_stack(t_stack **stack, t_stack *new);
 //void		ft_lstadd_front_stack(t_stack **stack, t_stack *new);
