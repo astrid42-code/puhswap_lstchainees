@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:50:06 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/06/04 19:25:09 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/04 19:35:18 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ int	main(int ac, char **av)
 	if (stack_b)
 		free_lst(stack_b);
 	puts("GG");
+	//system("leaks push_swap"); //pour tester leaks sur mac
 	return (0);
 }

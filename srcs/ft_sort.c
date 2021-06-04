@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 17:06:56 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/06/04 19:24:54 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/04 19:30:16 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void	ft_create_index(t_stack **a)
 {
 	t_stack	*lower;
 	int		index;
+	t_stack	*tmp;
 
 	lower = ft_lower_el(*a);
 	index = 0;
@@ -95,5 +96,11 @@ void	ft_create_index(t_stack **a)
 		//printf("low = %d\n", lower->index);
 		lower = ft_lower_el(*a);
 		index++;
+	}
+	tmp = *a;
+	while (tmp)
+	{
+		printf("el = %d index = %d\n", (tmp)->el, (tmp)->index);
+		tmp = (tmp)->next;
 	}
 }
