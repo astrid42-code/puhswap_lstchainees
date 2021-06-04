@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 10:38:26 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/06/03 16:16:10 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/04 19:17:07 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ void    ft_pushswap(t_stack **stack_a, t_stack **stack_b, int ac)
         else if (count == 4)
             ft_four(stack_a, stack_b);
     }
-/*	else if (count < 50)
+	else if (count < 50)
 		ft_under_fifty(stack_a, stack_b);
-*/	else
+	else
 	{
-        ft_sort(stack_a, stack_b, count);
+		//copy_a = ft_create_lst(ac, av, &copy_a);
+		ft_create_index(stack_a);
+        //ft_sort(stack_a, stack_b, count);
 	}
 }
 
@@ -155,7 +157,7 @@ void	ft_under_fifty(t_stack **a, t_stack **b)
 	 // ou juste faire ac - 1!
 	//printf("m = %d\n", middle);
 	
-	while (ft_stacksize(*a) > 3/* || ft_is_sort(a) == 1*/)
+	while (ft_stacksize(*a) > 3/* || ft_is_sort(*a) == 1*/)
 	{
 		middle = ft_stacksize(*a) / 2;
 		//printf("el1 = %d\n", (*a)->el);
@@ -178,12 +180,4 @@ void	ft_under_fifty(t_stack **a, t_stack **b)
 		ft_push_a(a, b);
 	}
 //		puts("che");
-}
-
-void	ft_sort(t_stack **a, t_stack **b, int count)
-{
-	(void)b;
-
-	//lecture et attribution index :
-	ft_search_index(a, count);
 }

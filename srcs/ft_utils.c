@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 16:39:26 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/06/03 16:08:59 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/04 17:06:06 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,13 +120,21 @@ int	ft_search_min(t_stack *stack)
 
 int	ft_is_sort(t_stack *stack)
 {
+	t_stack	*tmp;
 	//printf("che\n");
-	while (stack)
+	tmp = stack;
+	while (tmp)
 	{
-		if (stack->el < stack->next->el)
-			stack = stack->next;
-		else if (stack->el > stack->next->el)
+		if (tmp->el < tmp->next->el)
+		{
+			tmp = tmp->next;
+			//printf("tmp = %d  stack = %d\n", tmp->el, stack->el);
+		}
+		else if (tmp->el > tmp->next->el)
+		{
+			//printf("che\n");
 			return (1);
+		}
 	}
 	return (0);
 }

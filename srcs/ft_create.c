@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 16:38:15 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/06/03 17:08:00 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/04 19:10:19 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_stack	*ft_create_a(int nbr, t_stack *stack_a)
 	if (!new)
 		return (0); // et non 0 sinon ca detruit la liste et je ne pourrai pas free les precedents maillons
 	new->el = nbr;
+	new->index = -1;
 	new->next = NULL;
 	if (tmp == NULL)
 		tmp = new;
