@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:50:06 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/06/04 19:35:18 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/05 17:33:25 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	main(int ac, char **av)
 	}
 	if (!ft_create_lst(ac, av, &stack_a))
 	{
-		//puts("che");
 		free_lst(stack_a);
 		printf("Error\n");
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:50:16 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/06/04 19:17:42 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/05 17:21:57 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ long long	ft_atoll(const char *str);
 int			ft_is_sort(t_stack *a);
 int			ft_search_min(t_stack *stack);
 void		ft_create_index(t_stack **a);
+void    	ft_sort_chunk(int i, t_stack **a, t_stack **b);
 
 void		ft_two(t_stack **a);
 void		ft_three(t_stack **a);
