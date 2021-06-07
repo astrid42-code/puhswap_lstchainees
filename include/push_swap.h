@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:50:16 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/06/05 17:21:57 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/07 18:22:50 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ t_stack		*ft_create_lst(int ac, char **av, t_stack **stack_a);
 int			ft_check_arg(int ac, char **av);
 void		free_lst(t_stack *stack_a);
 void		ft_pushswap(t_stack **stack_a, t_stack **stack_b, int ac);
+void    	ft_sort_chunk_onehundred(t_stack **a, t_stack **b);
+void    	ft_sort_chunk_fivehundred(t_stack **a, t_stack **b);
 
 // utils
 int			ft_check_doublon(long long nbr, t_stack *stack_a);
@@ -47,7 +49,8 @@ long long	ft_atoll(const char *str);
 int			ft_is_sort(t_stack *a);
 int			ft_search_min(t_stack *stack);
 void		ft_create_index(t_stack **a);
-void    	ft_sort_chunk(int i, t_stack **a, t_stack **b);
+int			ft_pos_index(t_stack *a, int i);
+
 
 void		ft_two(t_stack **a);
 void		ft_three(t_stack **a);

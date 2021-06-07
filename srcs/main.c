@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:50:06 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/06/05 17:33:25 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/07 18:30:41 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(int ac, char **av)
 		printf("Error\n");
 		return (1);
 	}
+	//printf("c = %d\n", ac - 1);
 	ft_pushswap(&stack_a, &stack_b, ac);
 /*	while (stack_a)
 	{
@@ -40,7 +41,7 @@ int	main(int ac, char **av)
 */	free_lst(stack_a);
 	if (stack_b)
 		free_lst(stack_b);
-	puts("GG");
+	//puts("GG");
 	//system("leaks push_swap"); //pour tester leaks sur mac
 	return (0);
 }
