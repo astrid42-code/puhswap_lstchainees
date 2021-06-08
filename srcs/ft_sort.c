@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 17:06:56 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/06/07 19:04:10 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/08 11:07:35 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,28 +49,7 @@ void	ft_create_index(t_stack **a)
 		tmp = (tmp)->next;
 	}*/
 }
-/*
-void    ft_sort(t_stack **a, t_stack **b, int count)
-{
-	int i;
-	int chunk;
 
-	i = 0;
-	chunk = 0;
-	while (chunk < count)
-	{
-		chunk = (count / 10);
-		ft_sort_chunk(i, a, b);
-		//	printf("ch = %d\n", chunk);
-		i += 10;
-    }
-    if (count != 0)
-    {
-        chunk = count + 1;
-        ft_sort_chunk(i, a, b);
-    }
-}
-*/
 void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 {
 	int		i;
@@ -78,72 +57,86 @@ void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 	int		size_chunk;
 	int		pos;
 	t_stack	*tmp_a;
+	t_stack *tmp;
 
 	tmp_a = *a;
 	chunk = 5;
 	i = 0;
+	pos = 0;
 	while (chunk != 0) // tq j'ai des chunks
 	{
+		tmp = tmp_a;
 		size_chunk = 20;
 		while (size_chunk != 0)
 		{
-			//printf("size = %d\n", size_chunk);
 			// pb : pos tjrs = a 0!!
-			if (tmp_a->index >= i && tmp_a->index < i + 20)
-			{
-				pos = ft_pos_index(tmp_a, i);
-				printf("index = %d  pos = %d el = %d\n", tmp_a->index, pos, tmp_a->el);
-				while (pos != 0)
-				{	
-					ft_rotate_a(&tmp_a);
-					pos = ft_pos_index(tmp_a, i);
-				}
-				if (pos == 0)
-				{
-					ft_push_b(&tmp_a, b);
-					//ft_sort_b();
-					size_chunk--;
-				}
-			/*	if (size_chunk == 0)
-				{
-					while (b)
-						ft_push_a(a, b);
-					size_chunk = ft_sizeofchunk();
-					while (size_chunk != 0)
-					{
-						ft_rotate_a(a);
-						size_chunk--;
-					}
-				}
-			*/
-			}
-			else
+		//printf("pos = %d\n", pos);
+			if (tmp_a->index > i + 20)
 			{
 				tmp_a = tmp_a->next;
+				pos++;
+				printf("el = %d index = %d pos = %d\n", tmp_a->el, tmp_a->index, pos);
 			}
+			else if ((tmp_a->index >= i && tmp_a->index < i + 20) && pos != 0)
+			{
+			//pos = ft_pos_index(tmp, i);
+				while (pos != 0)
+				{	
+					ft_rotate_a(&tmp);
+				printf("pos = %d el_a = %d\n", pos, tmp_a->el);
+			printf("tmp = %d tmp_a = %d\n", tmp->el, tmp_a->el);
+					pos--;
+					//pos = ft_pos_index(tmp, i);
+				}
+			}
+			if (pos == 0 && (tmp_a->index >= i && tmp_a->index < i + 20))
+			{
+					ft_push_b(&tmp_a, b);
+					printf("b = %d\n", (*b)->el);
+					//ft_sort_b();
+					size_chunk--;
+			}
+				//printf("index = %d  pos = %d el = %d\n", tmp_a->index, pos, tmp_a->el);
+				/*if (size_chunk == 0)
+				{
+					while ((*b)->next != NULL)
+					{
+						ft_push_a(&tmp_a, b);
+					}
+					size_chunk = 20;
+					while (size_chunk != 0)
+					{
+						ft_rev_rot_a(&tmp_a);
+						size_chunk--;
+						printf("el_a = %d\n", tmp_a->el);
+				//printf("size_chunk =%d\n", size_chunk);
+					}
+				}*/
 		}
 		i += 20;
 		chunk--;
-	}
-	chunk = ft_stacksize(*a) % 10;
-	if (chunk != 0)
-	{
-		while (chunk != 0)
-		{
-			ft_push_b(a, b);
-			//ft_sort_b();
-			chunk--;
-		/*	if (chunk == 0)
-			{
-				while (b)
-					ft_push_a(a, b);
-				chunk = ft_stacksize(a) % 10;
-				while (chunk != 0)
-				{
-					ft_rotate_a(a);
-					chunk--;
-				}
-			}*/
-		}
+		tmp_a = tmp;
 	}
 }
+	// chunk = ft_stacksize(*a) % 10;
+	// if (chunk != 0)
+	// {
+	// 	while (chunk != 0)
+	// 	{
+	// 		ft_push_b(a, b);
+	// 		//ft_sort_b();
+	// 		chunk--;
+	// 	/*	if (chunk == 0)
+	// 		{
+	// 			while (b)
+	// 				ft_push_a(a, b);
+	// 			chunk = ft_stacksize(a) % 10;
+	// 			while (chunk != 0)
+	// 			{
+	// 				ft_rotate_a(a);
+	// 				chunk--;
+	// 			}
+	// 		}*/
+	// 	}
+	// }
+
