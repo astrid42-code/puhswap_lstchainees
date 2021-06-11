@@ -44,11 +44,11 @@ void	ft_rotate_b(t_stack **b)
 	t_stack *new;
 	
 	tmp = *b; 
-	printf("tmp_el = %d\n", tmp->el);
+	//printf("tmp_el = %d\n", tmp->el);
 	new = *b;
 	while (new->next)
 	{	new = new->next;
-		printf("new_el = %d\n", new->el);
+	//	printf("new_el = %d\n", new->el);
 	}
 	new->next = tmp; // tmp etant le 1er el
 	*b = (*b)->next;
@@ -67,13 +67,13 @@ void	ft_rotate_ab(t_stack **a, t_stack **b)
 	new_a = *a;
 	while (new_a)
 	{	new_a = new_a->next;
-	printf("tmp_el = %d\n", tmp_a->el);
+	//printf("tmp_el = %d\n", tmp_a->el);
 	}
 	new_a->next = tmp_a;
 	*a = (*a)->next;
 	tmp_a->next = NULL;
 	tmp_b = *b; 
-	printf("tmp_el = %d\n", tmp_b->el);
+	//printf("tmp_el = %d\n", tmp_b->el);
 	new_b = *b;
 	while (new_b)
 		new_b = new_b->next;

@@ -38,7 +38,7 @@ void    ft_swap_b(t_stack *b)
     if (ft_stacksize(b) < 1)
         return ;
     ft_swap(&(b->el), &(b->next->el));
-    printf("sb/n");
+    printf("sb\n");
     //printf("b = %d  b_next = %d\n", (b->el), (b->next->el));
     //swap la valeur en haut de la pile b avec celle d avant 
     //+ imprimer l action sb
