@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 17:06:56 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/06/08 11:07:35 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/11 14:19:11 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,62 @@ void	ft_create_index(t_stack **a)
 		tmp = (tmp)->next;
 	}*/
 }
+
+void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
+{
+	int chunk;
+	int size_chunk;
+	int pos;
+	int index;
+	t_stack *tmp_a;
+	t_stack *tmp;
+	t_stack *tmp_b;
+
+	chunk = 5;
+	tmp = *a;
+	index = 0;
+	while (chunk != 0)
+	{
+		size_chunk = 20;
+		while (size_chunk != 0)
+		{
+			tmp_a = tmp;
+			//printf("tmp_a = %d  tmp = %d\n", tmp_a->el, tmp->el);
+			pos = 0;
+			while (!(tmp_a->index >= index && tmp_a->index < index + 20))
+			{
+				tmp_a = tmp_a->next;
+				pos++;
+			}
+			if (tmp_a->index >= index && tmp_a->index < index + 20)
+			{
+				if (pos == 0)
+				{
+					ft_push_b(&tmp, b);
+					//ft_sort_b(b);
+					size_chunk--;
+				}
+				else
+				{
+					ft_rotate_a(&tmp);
+				}
+			}
+		}
+		tmp_b = *b;
+	/*	while (tmp_b)
+		{
+			printf("tmp_b = %d\n", tmp_b->el);
+			tmp_b = tmp_b->next;
+		}
+	*/	index += 20;	
+		chunk--;
+		printf("chunk = %d\n", chunk);
+	}
+}
+
+
+
+/*
 
 void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 {
@@ -97,7 +153,7 @@ void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 					size_chunk--;
 			}
 				//printf("index = %d  pos = %d el = %d\n", tmp_a->index, pos, tmp_a->el);
-				/*if (size_chunk == 0)
+				if (size_chunk == 0)
 				{
 					while ((*b)->next != NULL)
 					{
@@ -111,13 +167,14 @@ void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 						printf("el_a = %d\n", tmp_a->el);
 				//printf("size_chunk =%d\n", size_chunk);
 					}
-				}*/
+				}
 		}
 		i += 20;
 		chunk--;
 		tmp_a = tmp;
 	}
 }
+*/
 	// chunk = ft_stacksize(*a) % 10;
 	// if (chunk != 0)
 	// {
