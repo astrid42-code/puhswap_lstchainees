@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 17:06:56 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/06/12 16:03:54 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/12 17:08:21 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,12 @@ void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 	chunk = 5;
 	tmp = *a;
 	index = 0;
-	//while (chunk != 0)
+	while (chunk != 0)
 	{
 		size_chunk = 20;
 		while (size_chunk != 0)
 		{
 			tmp_a = tmp;
-			//printf("tmp_a = %d  tmp = %d\n", tmp_a->el, tmp->el);
 			pos = 0;
 			while (!(tmp_a->index >= index && tmp_a->index < index + 20))
 			{
@@ -89,22 +88,34 @@ void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 					ft_rotate_a(&tmp);
 				}
 			}
-		/*	if (size_chunk == 0)
+			/*if (size_chunk == 0)
 			{
-				while ((*b)->next != NULL)
-				{
-					ft_push_a(&tmp_a, b);
-				}
 				size_chunk = 20;
+				tmp_a = tmp;
+					//printf("el_a = %d\n", (*a)->el);
+				while (size_chunk != 0)
+				//while (*b && (*b)->next)
+				{
+					ft_push_a(&tmp, b);
+					size_chunk--;
+					//printf("el_a = %d\n", tmp->el);
+				}
+				printf("1 el_a = %d next = %d\n", tmp->el, tmp->next->el);
+				size_chunk = 20;
+				//tmp = *a;
+				//tmp_a = *a;
 				while (size_chunk != 0)
 				{
-					ft_rev_rot_a(&tmp_a);
+					ft_rotate_a(&tmp);
+				printf("el_a = %d next = %d\n", tmp->el, tmp->next->el);
 					size_chunk--;
-					printf("el_a = %d\n", tmp_a->el);
 			//printf("size_chunk =%d\n", size_chunk);
 				}
+				
 			}*/
+			printf("tmp = %d\n", tmp->el);
 		}
+		*a = tmp;
 		tmp_b = *b;
 	/*	while (tmp_b)
 		{
@@ -112,7 +123,7 @@ void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 			tmp_b = tmp_b->next;
 		}
 	*/	index += 20;	
-	//	chunk--;
+		chunk--;
 		printf("chunk = %d\n", chunk);
 	}
 	// faire pter *a sur tmp_a?
@@ -203,24 +214,24 @@ void	ft_sort_b(t_stack **b)
 	pos = 1;
 	tmp_b = *b;
 	middle = ft_stacksize(tmp_b) / 2;
-		while (tmp_b)
-		{
-			printf("tmp_b = %d\n", tmp_b->el);
-			tmp_b = tmp_b->next;
-		}
-		tmp_b = *b;
+		// while (tmp_b)
+		// {
+		// 	//printf("tmp_b = %d\n", tmp_b->el);
+		// 	tmp_b = tmp_b->next;
+		// }
+		// tmp_b = *b;
 	//printf("size = %d\n", ft_stacksize(tmp_b));
 	if (ft_stacksize(tmp_b) == 1)
 		return ;
 	if (ft_stacksize(tmp_b) == 2)
 	{
-		printf("el = %d  index = %d el->next = %d  index->next = %d\n", tmp_b->el, tmp_b->index, tmp_b->next->el, tmp_b->next->index);
+		//printf("el = %d  index = %d el->next = %d  index->next = %d\n", tmp_b->el, tmp_b->index, tmp_b->next->el, tmp_b->next->index);
 		if ((tmp_b)->el < (tmp_b)->next->el)
     	{
         	ft_swap_b(tmp_b);
         	//return ;
     	}
-		printf("el = %d  index = %d el->next = %d  index->next = %d\n", tmp_b->el, tmp_b->index, tmp_b->next->el, tmp_b->next->index);
+		//printf("el = %d  index = %d el->next = %d  index->next = %d\n", tmp_b->el, tmp_b->index, tmp_b->next->el, tmp_b->next->index);
     	// else 
         // 	return ;
 	}
@@ -234,7 +245,7 @@ void	ft_sort_b(t_stack **b)
 		//else
 		{
 			index = tmp_b->index;
-			printf("el = %d  index = %d el->next = %d  index->next = %d\n", tmp_b->el, tmp_b->index, tmp_b->next->el, tmp_b->next->index);
+			//printf("el = %d  index = %d el->next = %d  index->next = %d\n", tmp_b->el, tmp_b->index, tmp_b->next->el, tmp_b->next->index);
 			while (tmp_b && tmp_b->next && index < tmp_b->next->index)
 			{
 				pos++;
@@ -300,11 +311,11 @@ void	ft_sort_b(t_stack **b)
 		}
 	}
 	*b = tmp_b;
-		while (tmp_b)
-		{
-			printf("tmp_b = %d\n", tmp_b->el);
-			tmp_b = tmp_b->next;
-		}
+		// while (tmp_b)
+		// {
+		// 	printf("tmp_b = %d\n", tmp_b->el);
+		// 	tmp_b = tmp_b->next;
+		// }
 	return ;
 }
 
