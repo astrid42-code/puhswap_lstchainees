@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+        */
+/*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:18:42 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/05/27 17:24:26 by asgaulti@st      ###   ########.fr       */
+/*   Updated: 2021/06/12 16:05:13 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void    ft_swap_a(t_stack *a)
         return ;
     //printf("a = %d  a_next = %d a_next_next = %d\n", a->el, a->next->el, a->next->next->el);
     ft_swap(&(a->el), &(a->next->el));
+    ft_swap(&(a->index), &(a->next->index));
     printf("sa\n");
     //printf("a = %d  a_next = %d a_next_next = %d\n", a->el, a->next->el, a->next->next->el);
     //swap la valeur en haut de la pile a avec celle d avant (dc la taille de la pile et la meme - 1)
@@ -38,6 +39,7 @@ void    ft_swap_b(t_stack *b)
     if (ft_stacksize(b) < 1)
         return ;
     ft_swap(&(b->el), &(b->next->el));
+    ft_swap(&(b->index), &(b->next->index));
     printf("sb\n");
     //printf("b = %d  b_next = %d\n", (b->el), (b->next->el));
     //swap la valeur en haut de la pile b avec celle d avant 
@@ -49,7 +51,9 @@ void ft_swap_ab(t_stack *a, t_stack *b)
     if (ft_stacksize(a) < 1 || ft_stacksize(b) < 1)
         return ;
     ft_swap(&(a->el), &(a->next->el));
+    ft_swap(&(a->index), &(a->next->index));
     ft_swap(&(b->el), &(b->next->el));
+    ft_swap(&(b->index), &(b->next->index));
     printf("a = %d  a_next = %d\n", (a->el), (a->next->el));
     printf("b = %d  b_next = %d\n", (b->el), (b->next->el));
     printf("ss/n");

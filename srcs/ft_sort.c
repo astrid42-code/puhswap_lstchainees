@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 17:06:56 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/06/11 15:13:12 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/12 16:03:54 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_create_index(t_stack **a)
 {
 	t_stack	*lower;
 	int		index;
-//	t_stack	*tmp;
+	t_stack	*tmp;
 
 	lower = ft_lower_el(*a);
 	index = 0;
@@ -42,12 +42,12 @@ void	ft_create_index(t_stack **a)
 		lower = ft_lower_el(*a);
 		index++;
 	}
-/*	tmp = *a;
-	while (tmp)
-	{
-		printf("el = %d index = %d\n", (tmp)->el, (tmp)->index);
-		tmp = (tmp)->next;
-	}*/
+	tmp = *a;
+	// while (tmp)
+	// {
+	// 	printf("el = %d index = %d\n", (tmp)->el, (tmp)->index);
+	// 	tmp = (tmp)->next;
+	// }
 }
 
 void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
@@ -200,24 +200,33 @@ void	ft_sort_b(t_stack **b)
 	int middle;
 	int index;
 	
-	pos = 0;
+	pos = 1;
 	tmp_b = *b;
-	middle = ft_stacksize(*b) / 2;
-	//tmp_b = NULL;
+	middle = ft_stacksize(tmp_b) / 2;
+		while (tmp_b)
+		{
+			printf("tmp_b = %d\n", tmp_b->el);
+			tmp_b = tmp_b->next;
+		}
+		tmp_b = *b;
+	//printf("size = %d\n", ft_stacksize(tmp_b));
 	if (ft_stacksize(tmp_b) == 1)
 		return ;
 	if (ft_stacksize(tmp_b) == 2)
 	{
+		printf("el = %d  index = %d el->next = %d  index->next = %d\n", tmp_b->el, tmp_b->index, tmp_b->next->el, tmp_b->next->index);
 		if ((tmp_b)->el < (tmp_b)->next->el)
     	{
         	ft_swap_b(tmp_b);
         	//return ;
     	}
+		printf("el = %d  index = %d el->next = %d  index->next = %d\n", tmp_b->el, tmp_b->index, tmp_b->next->el, tmp_b->next->index);
     	// else 
         // 	return ;
 	}
 	else
 	{
+		//puts("che");
 		// if (tmp_b->index == 0)
 		// {	
 		// 	ft_rotate_b(&tmp_b);
@@ -225,30 +234,37 @@ void	ft_sort_b(t_stack **b)
 		//else
 		{
 			index = tmp_b->index;
+			printf("el = %d  index = %d el->next = %d  index->next = %d\n", tmp_b->el, tmp_b->index, tmp_b->next->el, tmp_b->next->index);
 			while (tmp_b && tmp_b->next && index < tmp_b->next->index)
 			{
 				pos++;
+				//printf("pos = %d\n", pos);
 				tmp_b = tmp_b->next;
 				//printf("el2 = %d\n", tmp_b->el);
 			}
-			//printf("pos = %d\n", pos);
-			tmp_b = *b;
+			if (pos == ft_stacksize(tmp_b))
+			{	ft_rotate_b(&tmp_b);
+			}
+			else if (pos == 1)
+				return ;
+			else
+			{tmp_b = *b;
 			if (pos <= middle)
 			{
 				count = 0;
-				if (pos == 1)
-					ft_swap_b(tmp_b);
-				else
+				// if (pos == 1)
+				// 	ft_swap_b(tmp_b);
+				// else
 				{
-					while (pos >= 1)
+					while (pos > 1)
 					{
 						ft_swap_b(tmp_b);
 						ft_rotate_b(&tmp_b);
 						pos--;
 						count++;
 					}
-					if (pos == 1)
-						ft_swap_b(tmp_b);
+					// if (pos == 1)
+					// 	ft_swap_b(tmp_b);
 					while (count != 0)
 					{
 						ft_rev_rot_b(&tmp_b);
@@ -280,9 +296,10 @@ void	ft_sort_b(t_stack **b)
 					}
 				}
 			}
+			}
 		}
 	}
-	//tmp_b = *b;
+	*b = tmp_b;
 		while (tmp_b)
 		{
 			printf("tmp_b = %d\n", tmp_b->el);
