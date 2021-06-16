@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 17:06:56 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/06/12 17:08:21 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/16 18:05:38 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_create_index(t_stack **a)
 	// 	tmp = (tmp)->next;
 	// }
 }
-
+/*
 void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 {
 	int chunk;
@@ -88,7 +88,7 @@ void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 					ft_rotate_a(&tmp);
 				}
 			}
-			/*if (size_chunk == 0)
+			if (size_chunk == 0)
 			{
 				size_chunk = 20;
 				tmp_a = tmp;
@@ -112,23 +112,31 @@ void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 			//printf("size_chunk =%d\n", size_chunk);
 				}
 				
-			}*/
-			printf("tmp = %d\n", tmp->el);
+			}
+			//printf("tmp = %d\n", tmp->el);
 		}
 		*a = tmp;
 		tmp_b = *b;
-	/*	while (tmp_b)
-		{
-			printf("tmp_b = %d\n", tmp_b->el);
-			tmp_b = tmp_b->next;
-		}
-	*/	index += 20;	
+		// while (tmp_b)
+		// {
+		// 	printf("tmp_b = %d\n", tmp_b->el);
+		// 	tmp_b = tmp_b->next;
+		// }
+		index += 20;	
 		chunk--;
-		printf("chunk = %d\n", chunk);
+		//printf("chunk = %d\n", chunk);
 	}
+	tmp_b = *b;
+	tmp = *a;
+	while (tmp_b)
+	{
+		ft_push_a(a, &tmp_b);
+		(tmp_b) = (tmp_b)->next;
+	}
+	// *a = tmp;
 	// faire pter *a sur tmp_a?
 }
-
+*/
 
 
 /*
@@ -207,9 +215,9 @@ void	ft_sort_b(t_stack **b)
 {
 	t_stack *tmp_b;
 	int	pos;
-	int	count;
+//	int	count;
 	int middle;
-	int index;
+//	int index;
 	
 	pos = 1;
 	tmp_b = *b;
@@ -235,7 +243,7 @@ void	ft_sort_b(t_stack **b)
     	// else 
         // 	return ;
 	}
-	else
+/*	else
 	{
 		//puts("che");
 		// if (tmp_b->index == 0)
@@ -310,12 +318,142 @@ void	ft_sort_b(t_stack **b)
 			}
 		}
 	}
-	*b = tmp_b;
-		// while (tmp_b)
-		// {
-		// 	printf("tmp_b = %d\n", tmp_b->el);
-		// 	tmp_b = tmp_b->next;
-		// }
+*/	*b = tmp_b;
+		while (tmp_b)
+		{
+			printf("tmp_b = %d\n", tmp_b->el);
+			tmp_b = tmp_b->next;
+		}
 	return ;
 }
 
+void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
+{
+	int chunk;
+	int size_chunk;
+	int index;
+	int el;
+	t_stack *tmp_a;
+	t_stack *tmp;
+	t_stack *tmp_b;
+
+	chunk = 5;
+	tmp = *a;
+	index = 0;
+//	while (chunk != 0)
+	{
+		size_chunk = 20;
+		while (size_chunk != 0)
+		{
+			tmp_a = ft_find_best_pos(tmp, index);
+			tmp = tmp_a;
+			el = tmp_a->index;
+			if (b && ft_stacksize(*b) >= 3)
+			{	ft_prepare_b(el, b);
+		printf("el = %d index = %d \n", tmp->el, tmp->index);
+			ft_push_b(&tmp, b);
+			}
+			else
+			{
+				ft_push_b(&tmp, b);
+			ft_sort_b(b);
+			}
+			size_chunk--;
+		}
+		*a = tmp;
+		tmp_b = *b;
+	/*	while (tmp_b)
+		{
+			printf("tmp_b = %d\n", tmp_b->el);
+		 	tmp_b = tmp_b->next;
+		}
+		index += 20;	
+		chunk--;
+*/		//printf("chunk = %d\n", chunk);
+	}
+	tmp_b = *b;
+	tmp = *a;
+	while (tmp_b)
+	{
+		ft_push_a(a, &tmp_b);
+		(tmp_b) = (tmp_b)->next;
+	}
+	
+}
+
+t_stack	*ft_find_best_pos(t_stack *tmp_a, int index)
+{
+	int pos;
+	int rev_pos;
+	int count;
+	int size;
+	t_stack	*tmp;
+
+	pos = 0;
+	rev_pos = 50;
+	count = 0;
+	size = ft_stacksize(tmp_a);
+	tmp = tmp_a;
+	while (!(tmp_a->index >= index && tmp_a->index < index + 20) && count != size / 2)
+	{
+		tmp_a = tmp_a->next;
+		pos++;
+		count++;
+	}
+	while (count != size / 2)
+	{
+		tmp_a = tmp_a->next;
+		count++;
+	}	
+	while (count != size)
+	{
+		if (tmp_a->index >= index && tmp_a->index < index + 20)
+		{
+			rev_pos = count;
+		}
+		tmp_a = tmp_a->next;
+		count++;
+	}
+	tmp_a = tmp;
+	rev_pos = count - rev_pos;
+	//printf("pos = %d  revpos = %d\n", pos, rev_pos);
+	if (pos <= rev_pos)
+	{
+		while (pos != 0)
+		{
+			ft_rotate_a(&tmp_a);
+			pos--;
+		}
+	}
+	else
+	{
+		while (rev_pos > 0)
+		{
+			ft_rev_rot_a(&tmp_a);
+			rev_pos--;
+			//printf("el = %d index = %d revpos = %d\n", tmp_a->el, tmp_a->index, rev_pos);
+		}
+	}
+	return (tmp_a);
+}
+
+void	ft_prepare_b(int index, t_stack **b)
+{
+	t_stack *tmp_b;
+	
+	tmp_b = *b;
+	while (tmp_b)
+	{
+		if (tmp_b->index > index)
+			ft_rotate_b(&tmp_b);
+		printf("index = %d tmp_indx = %d \n", index, tmp_b->index);
+		tmp_b = tmp_b->next;
+	}
+/*	while (tmp_b->index > index)
+	{
+		ft_rotate_b(&tmp_b);
+		printf("index = %d tmp_indx = %d \n", index, tmp_b->index);
+		tmp_b = tmp_b->next;
+	}
+*/	*b = tmp_b;
+}

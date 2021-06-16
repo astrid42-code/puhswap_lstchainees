@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 14:44:01 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/06/08 11:09:19 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/15 15:23:50 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_stacksize(t_stack *stack)
 	}
 	return (i);
 }
-
+/*
 int	ft_pos_index(t_stack *a, int i)
 {
 	int pos;
@@ -39,4 +39,4 @@ int	ft_pos_index(t_stack *a, int i)
 	}
 	//printf("pos = %d\n", pos);
 	return (pos);
-}
+}*/

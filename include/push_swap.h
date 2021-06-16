@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:50:16 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/06/12 16:02:58 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/16 17:21:34 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int			ft_is_sort(t_stack *a);
 int			ft_search_min(t_stack *stack);
 void		ft_create_index(t_stack **a);
 int			ft_pos_index(t_stack *a, int i);
+t_stack		*ft_find_best_pos(t_stack *tmp_a, int index);
+void		ft_prepare_b(int index, t_stack **b);
 
 // protos algos
 void		ft_two(t_stack **a);
