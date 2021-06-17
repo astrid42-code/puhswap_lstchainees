@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astridgaultier <astridgaultier@student.    +#+  +:+       +#+        */
+/*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 17:06:56 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/06/16 21:27:11 by astridgault      ###   ########.fr       */
+/*   Updated: 2021/06/17 18:05:03 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,53 +50,11 @@ void	ft_create_index(t_stack **a)
 	// }
 }
 
-void	ft_sort_b(t_stack **b)
-{
-	t_stack *tmp_b;
-	int	pos;
-//	int	count;
-	int middle;
-//	int index;
-	
-	pos = 1;
-	tmp_b = *b;
-	middle = ft_stacksize(tmp_b) / 2;
-		// while (tmp_b)
-		// {
-		// 	//printf("tmp_b = %d\n", tmp_b->el);
-		// 	tmp_b = tmp_b->next;
-		// }
-		// tmp_b = *b;
-	//printf("size = %d\n", ft_stacksize(tmp_b));
-	if (ft_stacksize(tmp_b) == 1)
-		return ;
-	if (ft_stacksize(tmp_b) == 2)
-	{
-		//printf("el = %d  index = %d el->next = %d  index->next = %d\n", tmp_b->el, tmp_b->index, tmp_b->next->el, tmp_b->next->index);
-		if ((tmp_b)->el < (tmp_b)->next->el)
-    	{
-        	ft_swap_b(tmp_b);
-        	//return ;
-    	}
-		//printf("el = %d  index = %d el->next = %d  index->next = %d\n", tmp_b->el, tmp_b->index, tmp_b->next->el, tmp_b->next->index);
-    	// else 
-        // 	return ;
-	}
-	*b = tmp_b;
-		while (tmp_b)
-		{
-			printf("tmp_b = %d\n", tmp_b->el);
-			tmp_b = tmp_b->next;
-		}
-	return ;
-}
-
 void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 {
 	int chunk;
 	int size_chunk;
 	int index;
-	int el;
 	t_stack *tmp_a;
 	t_stack *tmp;
 	t_stack *tmp_b;
@@ -111,38 +69,24 @@ void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 		{
 			tmp_a = ft_find_best_pos(tmp, index);
 			tmp = tmp_a;
-			el = tmp_a->index;
-			if (b && ft_stacksize(*b) >= 2)
-			{	ft_prepare_b(el, b);
-		printf("el = %d index = %d \n", tmp->el, tmp->index);
 			ft_push_b(&tmp, b);
-			}
-			else
-			{
-				ft_push_b(&tmp, b);
-			ft_sort_b(b);
-			}
-		tmp_b = *b;
-		while (tmp_b)
-		{
-			printf("tmp_b = %d\n", tmp_b->el);
-		 	tmp_b = tmp_b->next;
-		}
 			size_chunk--;
 		}
-		*a = tmp;
-		index += 20;	
-		chunk--;
+		printf("size = %d\n", size_chunk);
+		//printf("el = %d index = %d\n", tmp->el, tmp->index);
+		ft_sort_b(index, b, tmp);
+		//*a = tmp;
+		//tmp_b = *b;
 		//printf("chunk = %d\n", chunk);
 	}
 	tmp_b = *b;
 	tmp = *a;
-	while (tmp_b)
+/*	while (tmp_b)
 	{
 		ft_push_a(a, &tmp_b);
 		(tmp_b) = (tmp_b)->next;
 	}
-	
+*/	
 }
 
 t_stack	*ft_find_best_pos(t_stack *tmp_a, int index)
@@ -195,23 +139,53 @@ t_stack	*ft_find_best_pos(t_stack *tmp_a, int index)
 		{
 			ft_rev_rot_a(&tmp_a);
 			rev_pos--;
-			//printf("el = %d index = %d revpos = %d\n", tmp_a->el, tmp_a->index, rev_pos);
 		}
 	}
+	//printf("el = %d index = %d\n", tmp_a->el, tmp_a->index);
 	return (tmp_a);
 }
 
-void	ft_prepare_b(int index, t_stack **b)
+void	ft_sort_b(int index, t_stack **b, t_stack *tmp_a)
 {
-	t_stack *tmp_b;
-	
-	tmp_b = *b;
-	while (tmp_b && tmp_b->next != NULL)
+	t_stack	*tmp_b;
+	int count;
+	int pos;
+	int tmp;
+
+	count = 0;
+	tmp = index + 20;
+	while (b)
 	{
-		if (tmp_b->index > index && tmp_b->index < tmp_b->next->index)
-			ft_rotate_b(&tmp_b);
-		tmp_b = tmp_b->next;
-		printf("index = %d tmp_indx = %d \n", index, tmp_b->index);
+		pos = 0;
+		tmp_b = *b;
+		
+		while (tmp_b->index != tmp - 1)
+		{
+			tmp_b = tmp_b->next;
+			pos++;
+		}
+		if (tmp_b->index == tmp - 1)
+		{
+		//printf("pos = %d tmp-index = %d index = %d\n", pos, tmp_b->index, tmp);
+			if (pos <= ft_stacksize(*b) / 2)
+			{
+				while (pos != 0)
+				{
+					ft_rotate_b(b);
+					pos--;
+				}
+			}
+			else if (pos > ft_stacksize(*b) / 2)
+			{
+				while (pos < index - 1)
+				{
+					ft_rev_rot_b(b);
+					pos++;
+				}
+			}
+			ft_push_a(&tmp_a, b);
+			tmp--;
+		}
 	}
-	*b = tmp_b;
+	
 }

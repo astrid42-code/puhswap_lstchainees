@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:50:16 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/06/16 17:21:34 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/17 15:57:17 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void		ft_three(t_stack **a);
 void		ft_four(t_stack **a, t_stack **b);
 void		ft_under_fifty(t_stack **a, t_stack **b);
 void		ft_sort(t_stack **stack_a, t_stack **stack_b, int count);
-void		ft_sort_b(t_stack **b);
+void		ft_sort_b(int index, t_stack **b, t_stack *tmp_a);
 
 // protos lst
 int			ft_stacksize(t_stack *stack);
