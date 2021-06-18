@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: astridgaultier <astridgaultier@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 17:06:56 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/06/18 17:42:17 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/18 23:13:39 by astridgault      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,15 @@ void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 			tmp = tmp_a;
 			ft_push_b(&tmp, b);
 			size_chunk--;
+			if (size_chunk == 0 && index != 0)
+			{
+				tmp_a = tmp;
+				while (tmp_a->index != 0)
+				{
+					ft_rev_rot_a(&tmp_a);
+				}
+				tmp = tmp_a;
+			}
 		}
 		ft_sort_b(index, b, &tmp);
 		chunk--;
@@ -85,20 +94,24 @@ void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 		//*a = tmp;
 		//tmp_b = *b;
 		//printf("chunk = %d\n", chunk);
+		
 		tmp_b = tmp;
 		while (tmp_b)
 		{
 			printf("tmp = %d\n", tmp_b->el);
 		 	tmp_b = tmp_b->next;
-		}	
-	 }
-	//  size_chunk = 20;
-	//  while (size_chunk)
-	//  {
-	// 	 ft_rotate_a(&tmp);
-	// 	 tmp = tmp->next;
-	// 	 size_chunk--;
-	//  }
+		}
+	}
+	// FT_SORT_LAST:
+/*	size_chunk = 20;
+	while (size_chunk)
+	{
+		ft_rotate_a(&tmp);
+	printf("tmp1 = %d\n", tmp->el);
+		tmp = tmp->next;
+		size_chunk--;
+	}
+*/ pb : ne prend plus qu un élément sur deux!!!		PK?
 	// *a = tmp;
 	// while (tmp)
 	// 	{
@@ -122,6 +135,7 @@ t_stack	*ft_find_best_pos(t_stack *tmp_a, int index)
 	count = 0;
 	size = ft_stacksize(tmp_a);
 	tmp = tmp_a;
+	//printf("index = %d\n", index);
 	while (!(tmp_a->index >= index && tmp_a->index < index + 20) && count != size / 2)
 	{
 		tmp_a = tmp_a->next;
