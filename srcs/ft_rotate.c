@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asgaulti@student.42.fr <asgaulti>          +#+  +:+       +#+        */
+/*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:33:58 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/05/28 18:07:00 by asgaulti@st      ###   ########.fr       */
+/*   Updated: 2021/06/19 12:21:38 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ void	ft_rotate_a(t_stack **a)
 	new->next = tmp; // tmp etant le 1er el
 	*a = (*a)->next;
 	tmp->next = NULL;
-/*	tmp = *a;
-	while (tmp)
-	{
-			printf("A = %d\n", tmp->el);
-		tmp = tmp->next;
-	}
-*/	printf("ra\n");
+	tmp = *a;
+	// while (tmp)
+	// {
+	// 		printf("A = %d\n", tmp->el);
+	// 	tmp = tmp->next;
+	// }
+	printf("ra\n");
 	//return (tmp);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astridgaultier <astridgaultier@student.    +#+  +:+       +#+        */
+/*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 17:06:56 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/06/18 23:13:39 by astridgault      ###   ########.fr       */
+/*   Updated: 2021/06/19 12:52:14 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 	int index;
 	t_stack *tmp_a;
 	t_stack *tmp;
-	t_stack *tmp_b;
+	//t_stack *tmp_b;
 
 	chunk = 5;
 	tmp = *a;
@@ -95,24 +95,26 @@ void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 		//tmp_b = *b;
 		//printf("chunk = %d\n", chunk);
 		
-		tmp_b = tmp;
-		while (tmp_b)
-		{
-			printf("tmp = %d\n", tmp_b->el);
-		 	tmp_b = tmp_b->next;
-		}
 	}
 	// FT_SORT_LAST:
-/*	size_chunk = 20;
+	size_chunk = 20;
 	while (size_chunk)
 	{
+	//printf("tmp1 = %d\n", tmp->el);
 		ft_rotate_a(&tmp);
-	printf("tmp1 = %d\n", tmp->el);
-		tmp = tmp->next;
+	//printf("tmp2 = %d\n", tmp->el);
+		//tmp = tmp->next;
 		size_chunk--;
 	}
-*/ pb : ne prend plus qu un élément sur deux!!!		PK?
-	// *a = tmp;
+	// tmp_b = tmp;
+	// 	while (tmp_b)
+	// 	{
+	// 		printf("tmp = %d\n", tmp_b->el);
+	// 	 	tmp_b = tmp_b->next;
+	// 	}
+	// 	tmp = tmp_b;
+// pb : ne prend plus qu un élément sur deux!!!		PK?
+	*a = tmp;
 	// while (tmp)
 	// 	{
 	// 		printf("tmp = %d\n", tmp->el);
