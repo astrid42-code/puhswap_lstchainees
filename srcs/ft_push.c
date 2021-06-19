@@ -6,11 +6,11 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:32:43 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/06/18 15:26:36 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/19 18:47:27 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 void	ft_push_a(t_stack **a, t_stack **b)
 {

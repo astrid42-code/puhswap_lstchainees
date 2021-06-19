@@ -6,11 +6,11 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:18:42 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/06/12 16:05:13 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/19 18:51:44 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 void    ft_swap(int *a, int *b)
 {
@@ -25,13 +25,9 @@ void    ft_swap_a(t_stack *a)
 {
     if (ft_stacksize(a) < 1)
         return ;
-    //printf("a = %d  a_next = %d a_next_next = %d\n", a->el, a->next->el, a->next->next->el);
     ft_swap(&(a->el), &(a->next->el));
     ft_swap(&(a->index), &(a->next->index));
     printf("sa\n");
-    //printf("a = %d  a_next = %d a_next_next = %d\n", a->el, a->next->el, a->next->next->el);
-    //swap la valeur en haut de la pile a avec celle d avant (dc la taille de la pile et la meme - 1)
-    //+ imprimer l action sa
 }
 
 void    ft_swap_b(t_stack *b)
@@ -41,9 +37,6 @@ void    ft_swap_b(t_stack *b)
     ft_swap(&(b->el), &(b->next->el));
     ft_swap(&(b->index), &(b->next->index));
     printf("sb\n");
-    //printf("b = %d  b_next = %d\n", (b->el), (b->next->el));
-    //swap la valeur en haut de la pile b avec celle d avant 
-    //+ imprimer l action sb
 }
 
 void ft_swap_ab(t_stack *a, t_stack *b)
@@ -54,7 +47,5 @@ void ft_swap_ab(t_stack *a, t_stack *b)
     ft_swap(&(a->index), &(a->next->index));
     ft_swap(&(b->el), &(b->next->el));
     ft_swap(&(b->index), &(b->next->index));
-    printf("a = %d  a_next = %d\n", (a->el), (a->next->el));
-    printf("b = %d  b_next = %d\n", (b->el), (b->next->el));
     printf("ss/n");
 }

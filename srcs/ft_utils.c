@@ -6,11 +6,11 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 16:39:26 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/06/04 17:06:06 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/19 18:53:01 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 long long	ft_atoll(const char *str)
 {
@@ -40,11 +40,8 @@ long long	ft_atoll(const char *str)
 
 int	ft_check_doublon(long long nbr, t_stack *stack_a)
 {
-	// if (index == 1)
-	// 	return (1); // ne pas comparer le premier nbr...
 	while (stack_a)
 	{
-		//printf("nbr = %lld  el = %d \n", nbr, stack_a->el);
 		if (nbr == stack_a->el)
 			return (1);
 		stack_a = stack_a->next;
@@ -62,8 +59,6 @@ int	ft_check_arg(int ac, char **av)
 		return (1);
 	while (i < ac)
 	{
-		//printf("av[%d] = %s\n", i, av[i]);
-		//printf("i = %d\nac = %d\n", i, ac);
 		j = 0;
 		while (av[i][j])
 		{
@@ -80,14 +75,11 @@ void		free_lst(t_stack *stack_a)
 {
 	t_stack	*tmp;
 	
-	while (stack_a) // ou stack_a->el different de null?
+	while (stack_a)
 	{
 		tmp = stack_a->next;
-		//printf("stack_a = %d\n", stack_a->el);
 		free(stack_a);
-		//puts("che3");
 		stack_a = tmp;
-		//puts("che4");
 	}
 }
 
@@ -98,11 +90,8 @@ int	ft_search_min(t_stack *stack)
 	int	pos;
 
 	count = 0;
-	//j = ft_stacksize(stack);
-	//printf("j = %d\n", j);
 	pos = 0;
 	tmp = INT_MAX;
-	//printf("tmp1 = %d\n", tmp);
 	while (stack)
 	{
 		if (tmp >= stack->el)
@@ -113,28 +102,19 @@ int	ft_search_min(t_stack *stack)
 		count++;	
 		stack = stack->next;
 	}
-	//printf("c = %d\np = %d\n", count, pos);
-	//printf("tmp = %d\nel = %d\npos = %d\n", tmp, stack->el, pos);
 	return (pos);
 }
 
 int	ft_is_sort(t_stack *stack)
 {
 	t_stack	*tmp;
-	//printf("che\n");
 	tmp = stack;
 	while (tmp)
 	{
 		if (tmp->el < tmp->next->el)
-		{
 			tmp = tmp->next;
-			//printf("tmp = %d  stack = %d\n", tmp->el, stack->el);
-		}
 		else if (tmp->el > tmp->next->el)
-		{
-			//printf("che\n");
 			return (1);
-		}
 	}
 	return (0);
 }

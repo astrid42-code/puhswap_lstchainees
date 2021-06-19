@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:50:16 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/06/18 15:20:56 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/19 18:45:48 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <limits.h>
-# include "../Libft/libft.h"
 
 typedef struct s_stack
 {

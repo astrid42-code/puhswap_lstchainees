@@ -6,11 +6,11 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 17:06:56 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/06/19 12:52:14 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/19 18:47:43 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 static t_stack	*ft_lower_el(t_stack *lower)
 {
@@ -21,7 +21,7 @@ static t_stack	*ft_lower_el(t_stack *lower)
 	{
 		if ((!min && lower->index == -1) || (min && min->el > lower->el
 				&& lower->index == -1))
-			min = lower; // min = maillon le + petit
+			min = lower;
 		lower = lower->next;
 	}
 	return (min);
@@ -31,23 +31,15 @@ void	ft_create_index(t_stack **a)
 {
 	t_stack	*lower;
 	int		index;
-	t_stack	*tmp;
 
 	lower = ft_lower_el(*a);
 	index = 0;
 	while (lower)
 	{
 		lower->index = index;
-		//printf("low = %d\n", lower->index);
 		lower = ft_lower_el(*a);
 		index++;
 	}
-	tmp = *a;
-	//  while (tmp)
-	// {
-	// 	printf("el = %d index = %d\n", (tmp)->el, (tmp)->index);
-	// 	tmp = (tmp)->next;
-	// }
 }
 
 void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
@@ -57,24 +49,16 @@ void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 	int index;
 	t_stack *tmp_a;
 	t_stack *tmp;
-	//t_stack *tmp_b;
 
 	chunk = 5;
 	tmp = *a;
 	index = 0;
-	// while(tmp)
-	// {
-	// 	printf("tmpb-el = %d tmpb-index = %d\n", tmp->el, tmp->index);
-	//  	tmp = tmp->next;
-	// }
-	// tmp = *a;
 	while (chunk != 0)
 	{
 		size_chunk = 20;
 		while (size_chunk != 0)
 		{
 			tmp_a = ft_find_best_pos(tmp, index);
-		//printf("el = %d index = %d\n", tmp_a->el, tmp_a->index);
 			tmp = tmp_a;
 			ft_push_b(&tmp, b);
 			size_chunk--;
@@ -90,38 +74,16 @@ void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 		}
 		ft_sort_b(index, b, &tmp);
 		chunk--;
-		index += 20;
-		//*a = tmp;
-		//tmp_b = *b;
-		//printf("chunk = %d\n", chunk);
-		
+		index += 20;		
 	}
 	// FT_SORT_LAST:
 	size_chunk = 20;
 	while (size_chunk)
 	{
-	//printf("tmp1 = %d\n", tmp->el);
 		ft_rotate_a(&tmp);
-	//printf("tmp2 = %d\n", tmp->el);
-		//tmp = tmp->next;
 		size_chunk--;
 	}
-	// tmp_b = tmp;
-	// 	while (tmp_b)
-	// 	{
-	// 		printf("tmp = %d\n", tmp_b->el);
-	// 	 	tmp_b = tmp_b->next;
-	// 	}
-	// 	tmp = tmp_b;
-// pb : ne prend plus qu un élément sur deux!!!		PK?
 	*a = tmp;
-	// while (tmp)
-	// 	{
-	// 		printf("tmp = %d\n", tmp->el);
-	// 	 	tmp = tmp->next;
-	// 	}	
-		//printf("c = %d\n", chunk);
-	//tmp_b = *b;
 }
 
 t_stack	*ft_find_best_pos(t_stack *tmp_a, int index)
@@ -137,7 +99,6 @@ t_stack	*ft_find_best_pos(t_stack *tmp_a, int index)
 	count = 0;
 	size = ft_stacksize(tmp_a);
 	tmp = tmp_a;
-	//printf("index = %d\n", index);
 	while (!(tmp_a->index >= index && tmp_a->index < index + 20) && count != size / 2)
 	{
 		tmp_a = tmp_a->next;
@@ -160,7 +121,6 @@ t_stack	*ft_find_best_pos(t_stack *tmp_a, int index)
 	}
 	tmp_a = tmp;
 	rev_pos = count - rev_pos;
-	//printf("pos = %d  revpos = %d\n", pos, rev_pos);
 	if (pos <= rev_pos)
 	{
 		while (pos != 0)
@@ -177,7 +137,6 @@ t_stack	*ft_find_best_pos(t_stack *tmp_a, int index)
 			rev_pos--;
 		}
 	}
-	//printf("el = %d index = %d\n", tmp_a->el, tmp_a->index);
 	return (tmp_a);
 }
 
@@ -190,13 +149,7 @@ void	ft_sort_b(int index, t_stack **b, t_stack **tmp_a)
 
 	count = 0;
 	tmp = index + 19;
-	//printf("index = %d\n", index);
 	tmp_b = *b;
-	// while (tmp_b)
-	// {
-	// 	printf("tmpb-el = %d tmpb-index = %d\n", tmp_b->el, tmp_b->index);
-	// 	tmp_b = tmp_b->next;
-	// }
 	while (tmp != index)
 	{
 		pos = 0;
@@ -207,7 +160,6 @@ void	ft_sort_b(int index, t_stack **b, t_stack **tmp_a)
 			tmp_b = tmp_b->next;
 			pos++;
 		}
-		//printf("pos = %d tmp-index = %d tmp-el = %d\n", pos, tmp_b->index, tmp_b->el);
 		if (tmp_b->index == tmp)
 		{
 			if (pos <= ft_stacksize(*b) / 2)
@@ -222,17 +174,13 @@ void	ft_sort_b(int index, t_stack **b, t_stack **tmp_a)
 			{
 				while (pos < ft_stacksize(*b))
 				{
-					//printf("b-el1 = %d b-index = %d\n", (*b)->el, (*b)->index);
 					ft_rev_rot_b(b);
-			//printf("b-el2 = %d b-index = %d\n", (*b)->el, (*b)->index);
 					pos++;
 				}
 			}
-			//printf("b-el3 = %d b-index = %d pos = %d tmp+1 = %d\n", (*b)->el, (*b)->index, pos, tmp + 1);
 			ft_push_a(tmp_a, b);
 			tmp--;
 		}
 	}
-		//printf("b-el2 = %d tmp = %d\n", (*b)->el, tmp);
 		ft_push_a(tmp_a, b);
 }

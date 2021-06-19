@@ -6,7 +6,7 @@
 #    By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/24 13:51:00 by asgaulti@st       #+#    #+#              #
-#    Updated: 2021/06/04 19:33:28 by asgaulti         ###   ########.fr        #
+#    Updated: 2021/06/19 18:45:30 by asgaulti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,32 +24,24 @@ RM		=	rm -f
 CFLAGS	=	-Wall -Werror -Wextra 
 #-fsanitize=address -g3
 
-LIBFT	=	Libft
-
-LIBFT_LIB = Libft/libft.a
-
 INCL	=	include
 
-LFLAGS = -L ${LIBFT}
-
 .c.o:
-			${CC} ${CFLAGS} -I${LIBFT} -I${INCL} -g -c $< -o ${<:.c=.o}
+			${CC} ${CFLAGS} -I${INCL} -g -c $< -o ${<:.c=.o}
 
 # avec graph : git clone --recurse-submodules https://github.com/forfungg/push_swap.git; cd push_swap; make
 # sans graph : git clone --recurse-submodules https://github.com/forfungg/push_swap.git; cd push_swap; make nograph
 
 $(NAME):	${OBJS}
-			make -C ${LIBFT}
-			${CC} ${CFLAGS} ${LFLAGS} ${OBJS} -o ${NAME} ${LIBFT_LIB}
+			${CC} ${CFLAGS} ${LFLAGS} ${OBJS} -o ${NAME}
 
 all:		${NAME}
 
 clean:
 			${RM} ${OBJS}
-			make clean -C ${LIBFT}
 
 fclean:		clean
-			${RM} ${NAME} ${LIBFT_LIB}
+			${RM} ${NAME}
 					
 re:			fclean all
 

@@ -6,11 +6,11 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 10:38:26 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/06/10 11:12:36 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/19 18:46:59 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 void    ft_pushswap(t_stack **stack_a, t_stack **stack_b, int ac)
 {
@@ -111,32 +111,20 @@ void	ft_under_fifty(t_stack **a, t_stack **b)
 	int i;
 	int middle;
 
-	 // ou juste faire ac - 1!
-	//printf("m = %d\n", middle);
-	
-	while (ft_stacksize(*a) > 3/* || ft_is_sort(*a) == 1*/)
+	while (ft_stacksize(*a) > 3)
 	{
 		middle = ft_stacksize(*a) / 2;
-		// if (ft_stacksize(*a) == 100)
-		//  	middle++;
-		//printf("el1 = %d\n", (*a)->el);
-		i = ft_search_min(*a); //(fct qui renvoie la position du plus petit nbr)
-		//printf("middle = %d i = %d\n", middle, i);
-		//printf("i3 = %d\n", i);
+		i = ft_search_min(*a);
 		if (i == 0)
 			ft_push_b(a, b); 
-		else if (i <= middle) //(place dans 1ere moitie)
+		else if (i <= middle)
 			ft_rotate_a(a);
 		else
 		{
 			ft_rev_rot_a(a);
 		}
 	}
-	ft_three(a); // ranger les trois nombres restants
+	ft_three(a);
 	while (*b)
-	{
-		// tq il reste des nombres dans b, je les push dans a ( ils rentrent dans l'ordre du plus grand au plus petit)
 		ft_push_a(a, b);
-	}
-//		puts("che");
 }
