@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:50:16 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/06/19 18:45:48 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/20 14:22:10 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int			ft_search_min(t_stack *stack);
 void		ft_create_index(t_stack **a);
 int			ft_pos_index(t_stack *a, int i);
 t_stack		*ft_find_best_pos(t_stack *tmp_a, int index);
+t_stack		*ft_find_best_pos2(t_stack *tmp_a, int index);
+t_stack		*ft_find_best_pos3(t_stack *tmp_a, int index);
 void		ft_prepare_b(int index, t_stack **b);
 
 // protos algos
@@ -58,6 +60,8 @@ void		ft_four(t_stack **a, t_stack **b);
 void		ft_under_fifty(t_stack **a, t_stack **b);
 void		ft_sort(t_stack **stack_a, t_stack **stack_b, int count);
 void		ft_sort_b(int index, t_stack **b, t_stack **tmp_a);
+void		ft_sort_b2(int index, t_stack **b, t_stack **tmp_a);
+void		ft_sort_b3(int index, t_stack **b, t_stack **tmp_a);
 
 // protos lst
 int			ft_stacksize(t_stack *stack);

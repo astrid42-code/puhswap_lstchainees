@@ -1,48 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort.c                                          :+:      :+:    :+:   */
+/*   ft_sort_fivehundred.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/04 17:06:56 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/06/19 18:47:43 by asgaulti         ###   ########.fr       */
+/*   Created: 2021/06/20 13:42:00 by asgaulti          #+#    #+#             */
+/*   Updated: 2021/06/20 15:46:15 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_stack	*ft_lower_el(t_stack *lower)
-{
-	t_stack	*min;
-
-	min = NULL;
-	while (lower)
-	{
-		if ((!min && lower->index == -1) || (min && min->el > lower->el
-				&& lower->index == -1))
-			min = lower;
-		lower = lower->next;
-	}
-	return (min);
-}
-
-void	ft_create_index(t_stack **a)
-{
-	t_stack	*lower;
-	int		index;
-
-	lower = ft_lower_el(*a);
-	index = 0;
-	while (lower)
-	{
-		lower->index = index;
-		lower = ft_lower_el(*a);
-		index++;
-	}
-}
-
-void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
+void	ft_sort_chunk_fivehundred(t_stack **a, t_stack **b)
 {
 	int chunk;
 	int size_chunk;
@@ -50,15 +20,31 @@ void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 	t_stack *tmp_a;
 	t_stack *tmp;
 
-	chunk = 5;
+	chunk = 10;
 	tmp = *a;
 	index = 0;
+    // size_chunk = 50;
+    // while (size_chunk != 0)
+	// {
+	// 	tmp_a = ft_find_best_pos2(tmp, index);
+	// 	tmp = tmp_a;
+	// 	ft_push_b(&tmp, b);
+	// 	size_chunk--;
+	// 	if (size_chunk == 0 && index != 0)
+	// 	{
+	// 		tmp_a = tmp;
+	// 		while (tmp_a->index != 0)
+	// 			ft_rev_rot_a(&tmp_a);
+	// 		tmp = tmp_a;
+    //     }
+	// }
+	//ft_sort_b2(index, b, &tmp);
 	while (chunk != 0)
 	{
-		size_chunk = 20;
+		size_chunk = 50;
 		while (size_chunk != 0)
 		{
-			tmp_a = ft_find_best_pos(tmp, index);
+			tmp_a = ft_find_best_pos3(tmp, index);
 			tmp = tmp_a;
 			ft_push_b(&tmp, b);
 			size_chunk--;
@@ -72,12 +58,12 @@ void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 				tmp = tmp_a;
 			}
 		}
-		ft_sort_b(index, b, &tmp);
+		ft_sort_b3(index, b, &tmp);
 		chunk--;
-		index += 20;		
+		index += 50;		
 	}
 	// FT_SORT_LAST:
-	size_chunk = 20;
+	size_chunk = 50;
 	while (size_chunk)
 	{
 		ft_rotate_a(&tmp);
@@ -86,7 +72,7 @@ void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 	*a = tmp;
 }
 
-t_stack	*ft_find_best_pos(t_stack *tmp_a, int index)
+t_stack	*ft_find_best_pos3(t_stack *tmp_a, int index)
 {
 	int pos;
 	int rev_pos;
@@ -95,11 +81,11 @@ t_stack	*ft_find_best_pos(t_stack *tmp_a, int index)
 	t_stack	*tmp;
 
 	pos = 0;
-	rev_pos = 50;
+	rev_pos = 250;
 	count = 0;
 	size = ft_stacksize(tmp_a);
 	tmp = tmp_a;
-	while (!(tmp_a->index >= index && tmp_a->index < index + 20) && count != size / 2)
+	while (!(tmp_a->index >= index && tmp_a->index < index + 50) && count != size / 2)
 	{
 		tmp_a = tmp_a->next;
 		pos++;
@@ -112,7 +98,7 @@ t_stack	*ft_find_best_pos(t_stack *tmp_a, int index)
 	}	
 	while (count != size)
 	{
-		if (tmp_a->index >= index && tmp_a->index < index + 20)
+		if (tmp_a->index >= index && tmp_a->index < index + 50)
 		{
 			rev_pos = count;
 		}
@@ -140,7 +126,7 @@ t_stack	*ft_find_best_pos(t_stack *tmp_a, int index)
 	return (tmp_a);
 }
 
-void	ft_sort_b(int index, t_stack **b, t_stack **tmp_a)
+void	ft_sort_b3(int index, t_stack **b, t_stack **tmp_a)
 {
 	t_stack	*tmp_b;
 	int count;
@@ -148,7 +134,7 @@ void	ft_sort_b(int index, t_stack **b, t_stack **tmp_a)
 	int tmp;
 
 	count = 0;
-	tmp = index + 19;
+	tmp = index + 49;
 	tmp_b = *b;
 	while (tmp != index)
 	{

@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 10:38:26 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/06/19 18:46:59 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/20 14:18:32 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void    ft_pushswap(t_stack **stack_a, t_stack **stack_b, int ac)
 		ft_create_index(stack_a);
 		if (count == 100)
 			ft_sort_chunk_onehundred(stack_a, stack_b);
-	/*	else if (count == 500)
-			ft_sort_chunk_fivehundred(stack_a, stack_b);*/
+		else if (count == 500)
+			ft_sort_chunk_fivehundred(stack_a, stack_b);
 	}
 }
 

@@ -1,61 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_utils.c                                     :+:      :+:    :+:   */
+/*   ft_sort_onehundred.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 14:44:01 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/06/20 13:59:45 by asgaulti         ###   ########.fr       */
+/*   Created: 2021/06/20 13:42:12 by asgaulti          #+#    #+#             */
+/*   Updated: 2021/06/20 13:57:07 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_stacksize(t_stack *stack)
+void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 {
-	int i;
+	int chunk;
+	int size_chunk;
+	int index;
+	t_stack *tmp_a;
+	t_stack *tmp;
 
-	i = 0;
-	while (stack)
-	{
-		stack = stack->next;
-		i++;
-	}
-	return (i);
-}
-
-static t_stack	*ft_lower_el(t_stack *lower)
-{
-	t_stack	*min;
-
-	min = NULL;
-	while (lower)
-	{
-		if ((!min && lower->index == -1) || (min && min->el > lower->el
-				&& lower->index == -1))
-			min = lower;
-		lower = lower->next;
-	}
-	return (min);
-}
-
-void	ft_create_index(t_stack **a)
-{
-	t_stack	*lower;
-	int		index;
-
-	lower = ft_lower_el(*a);
+	chunk = 5;
+	tmp = *a;
 	index = 0;
-	while (lower)
+	while (chunk != 0)
 	{
-		lower->index = index;
-		lower = ft_lower_el(*a);
-		index++;
+		size_chunk = 20;
+		while (size_chunk != 0)
+		{
+			tmp_a = ft_find_best_pos(tmp, index);
+			tmp = tmp_a;
+			ft_push_b(&tmp, b);
+			size_chunk--;
+			if (size_chunk == 0 && index != 0)
+			{
+				tmp_a = tmp;
+				while (tmp_a->index != 0)
+					ft_rev_rot_a(&tmp_a);
+				tmp = tmp_a;
+			}
+		}
+		ft_sort_b(index, b, &tmp);
+		chunk--;
+		index += 20;		
 	}
+	// FT_SORT_LAST:
+	size_chunk = 20;
+	while (size_chunk)
+	{
+		ft_rotate_a(&tmp);
+		size_chunk--;
+	}
+	*a = tmp;
 }
 
-t_stack	*ft_find_best_pos2(t_stack *tmp_a, int index)
+t_stack	*ft_find_best_pos(t_stack *tmp_a, int index)
 {
 	int pos;
 	int rev_pos;
@@ -64,11 +63,11 @@ t_stack	*ft_find_best_pos2(t_stack *tmp_a, int index)
 	t_stack	*tmp;
 
 	pos = 0;
-	rev_pos = 250;
+	rev_pos = 50;
 	count = 0;
 	size = ft_stacksize(tmp_a);
 	tmp = tmp_a;
-	while (!(tmp_a->index >= index && tmp_a->index < index + 50) && count != size / 2)
+	while (!(tmp_a->index >= index && tmp_a->index < index + 20) && count != size / 2)
 	{
 		tmp_a = tmp_a->next;
 		pos++;
@@ -81,7 +80,7 @@ t_stack	*ft_find_best_pos2(t_stack *tmp_a, int index)
 	}	
 	while (count != size)
 	{
-		if (tmp_a->index >= index && tmp_a->index < index + 50)
+		if (tmp_a->index >= index && tmp_a->index < index + 20)
 		{
 			rev_pos = count;
 		}
@@ -109,7 +108,7 @@ t_stack	*ft_find_best_pos2(t_stack *tmp_a, int index)
 	return (tmp_a);
 }
 
-void	ft_sort_b2(int index, t_stack **b, t_stack **tmp_a)
+void	ft_sort_b(int index, t_stack **b, t_stack **tmp_a)
 {
 	t_stack	*tmp_b;
 	int count;
@@ -117,7 +116,7 @@ void	ft_sort_b2(int index, t_stack **b, t_stack **tmp_a)
 	int tmp;
 
 	count = 0;
-	tmp = index + 49;
+	tmp = index + 19;
 	tmp_b = *b;
 	while (tmp != index)
 	{

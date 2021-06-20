@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 16:39:26 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/06/19 18:53:01 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/20 13:47:13 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int	ft_search_min(t_stack *stack)
 	}
 	return (pos);
 }
-
+/*
 int	ft_is_sort(t_stack *stack)
 {
 	t_stack	*tmp;
@@ -118,4 +118,4 @@ int	ft_is_sort(t_stack *stack)
 	}
 	return (0);
 }
- 
+ */
