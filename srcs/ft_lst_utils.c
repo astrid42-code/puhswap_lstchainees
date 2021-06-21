@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 14:44:01 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/06/20 13:59:45 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/21 13:52:28 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,8 @@ void	ft_sort_b2(int index, t_stack **b, t_stack **tmp_a)
 	int tmp;
 
 	count = 0;
-	tmp = index + 49;
+	//tmp = index + 49;
+	tmp = 500;
 	tmp_b = *b;
 	while (tmp != index)
 	{

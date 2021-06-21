@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 13:42:00 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/06/20 15:46:15 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/21 13:59:16 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,31 +44,32 @@ void	ft_sort_chunk_fivehundred(t_stack **a, t_stack **b)
 		size_chunk = 50;
 		while (size_chunk != 0)
 		{
-			tmp_a = ft_find_best_pos3(tmp, index);
+			tmp_a = ft_find_best_pos2(tmp, index);
 			tmp = tmp_a;
 			ft_push_b(&tmp, b);
 			size_chunk--;
-			if (size_chunk == 0 && index != 0)
-			{
-				tmp_a = tmp;
-				while (tmp_a->index != 0)
-				{
-					ft_rev_rot_a(&tmp_a);
-				}
-				tmp = tmp_a;
-			}
+			// if (size_chunk == 0 && index != 0)
+			// {
+			// 	tmp_a = tmp;
+			// 	while (tmp_a->index != 0)
+			// 	{
+			// 		ft_rev_rot_a(&tmp_a);
+			// 	}
+			// 	tmp = tmp_a;
+			// }
 		}
-		ft_sort_b3(index, b, &tmp);
 		chunk--;
 		index += 50;		
 	}
+		ft_sort_b2(index, b, &tmp);
+	
 	// FT_SORT_LAST:
-	size_chunk = 50;
-	while (size_chunk)
-	{
-		ft_rotate_a(&tmp);
-		size_chunk--;
-	}
+	// size_chunk = 50;
+	// while (size_chunk)
+	// {
+	// 	ft_rotate_a(&tmp);
+	// 	size_chunk--;
+	// }
 	*a = tmp;
 }
 
@@ -85,7 +86,7 @@ t_stack	*ft_find_best_pos3(t_stack *tmp_a, int index)
 	count = 0;
 	size = ft_stacksize(tmp_a);
 	tmp = tmp_a;
-	while (!(tmp_a->index >= index && tmp_a->index < index + 50) && count != size / 2)
+	while (!(tmp_a->index >= index && tmp_a->index < index + 45) && count != size / 2)
 	{
 		tmp_a = tmp_a->next;
 		pos++;
@@ -98,7 +99,7 @@ t_stack	*ft_find_best_pos3(t_stack *tmp_a, int index)
 	}	
 	while (count != size)
 	{
-		if (tmp_a->index >= index && tmp_a->index < index + 50)
+		if (tmp_a->index >= index && tmp_a->index < index + 45)
 		{
 			rev_pos = count;
 		}
@@ -134,7 +135,7 @@ void	ft_sort_b3(int index, t_stack **b, t_stack **tmp_a)
 	int tmp;
 
 	count = 0;
-	tmp = index + 49;
+	tmp = index + 44;
 	tmp_b = *b;
 	while (tmp != index)
 	{

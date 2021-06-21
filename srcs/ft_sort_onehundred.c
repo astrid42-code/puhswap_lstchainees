@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 13:42:12 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/06/20 13:57:07 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/21 15:56:54 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,27 +30,28 @@ void	ft_sort_chunk_onehundred(t_stack **a, t_stack **b)
 		{
 			tmp_a = ft_find_best_pos(tmp, index);
 			tmp = tmp_a;
+	//printf("tmp = %d \n", tmp->el);
 			ft_push_b(&tmp, b);
 			size_chunk--;
-			if (size_chunk == 0 && index != 0)
-			{
-				tmp_a = tmp;
-				while (tmp_a->index != 0)
-					ft_rev_rot_a(&tmp_a);
-				tmp = tmp_a;
-			}
 		}
-		ft_sort_b(index, b, &tmp);
+			// if (size_chunk == 0 && index != 0)
+			// {
+			// 	tmp_a = tmp;
+			// 	//printf("tmp_a = %d imdex = %d\n", tmp_a->el, index);
+			// 	while (tmp_a->index != 0)
+			// 		ft_rev_rot_a(&tmp_a);
+			// 	//printf("tmp_a = %d imdex = %d\n", tmp_a->el, index);
+			// 	tmp = tmp_a;
+			// }
+		index += 20;
 		chunk--;
-		index += 20;		
 	}
+	
+	ft_sort_b(index, b, &tmp);
 	// FT_SORT_LAST:
-	size_chunk = 20;
-	while (size_chunk)
-	{
-		ft_rotate_a(&tmp);
-		size_chunk--;
-	}
+	// size_chunk = 20;
+	// while (size_chunk--)
+	// 	ft_rotate_a(&tmp);
 	*a = tmp;
 }
 
@@ -63,26 +64,25 @@ t_stack	*ft_find_best_pos(t_stack *tmp_a, int index)
 	t_stack	*tmp;
 
 	pos = 0;
-	rev_pos = 50;
+	rev_pos = 0;
 	count = 0;
 	size = ft_stacksize(tmp_a);
+	//printf("size = %d\n", size);
 	tmp = tmp_a;
-	while (!(tmp_a->index >= index && tmp_a->index < index + 20) && count != size / 2)
+	while (!(tmp_a->index >= index && tmp_a->index < index + 20))
 	{
 		tmp_a = tmp_a->next;
 		pos++;
-		count++;
+		//count++;
 	}
-	while (count != size / 2)
-	{
-		tmp_a = tmp_a->next;
-		count++;
-	}	
+	//printf("tmp_a1 = %d pos = %d\n", tmp_a->el, pos);
+	tmp_a = tmp;
 	while (count != size)
 	{
 		if (tmp_a->index >= index && tmp_a->index < index + 20)
 		{
 			rev_pos = count;
+	//printf("tmp_a2 = %d\n", tmp_a->el);
 		}
 		tmp_a = tmp_a->next;
 		count++;
@@ -105,6 +105,7 @@ t_stack	*ft_find_best_pos(t_stack *tmp_a, int index)
 			rev_pos--;
 		}
 	}
+	//printf("tmp_a3 = %d\n", tmp_a->el);
 	return (tmp_a);
 }
 
@@ -114,11 +115,14 @@ void	ft_sort_b(int index, t_stack **b, t_stack **tmp_a)
 	int count;
 	int pos;
 	int tmp;
+	(void)index;
 
 	count = 0;
-	tmp = index + 19;
+	//tmp = index + 19;
+	tmp = 99;
 	tmp_b = *b;
-	while (tmp != index)
+	//while (tmp != index)
+	while (tmp != 0)
 	{
 		pos = 0;
 		tmp_b = *b;
