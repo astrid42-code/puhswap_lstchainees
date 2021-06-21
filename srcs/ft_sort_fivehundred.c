@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 13:42:00 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/06/21 13:59:16 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/21 16:06:01 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,6 @@ void	ft_sort_chunk_fivehundred(t_stack **a, t_stack **b)
 	chunk = 10;
 	tmp = *a;
 	index = 0;
-    // size_chunk = 50;
-    // while (size_chunk != 0)
-	// {
-	// 	tmp_a = ft_find_best_pos2(tmp, index);
-	// 	tmp = tmp_a;
-	// 	ft_push_b(&tmp, b);
-	// 	size_chunk--;
-	// 	if (size_chunk == 0 && index != 0)
-	// 	{
-	// 		tmp_a = tmp;
-	// 		while (tmp_a->index != 0)
-	// 			ft_rev_rot_a(&tmp_a);
-	// 		tmp = tmp_a;
-    //     }
-	// }
-	//ft_sort_b2(index, b, &tmp);
 	while (chunk != 0)
 	{
 		size_chunk = 50;
@@ -48,28 +32,11 @@ void	ft_sort_chunk_fivehundred(t_stack **a, t_stack **b)
 			tmp = tmp_a;
 			ft_push_b(&tmp, b);
 			size_chunk--;
-			// if (size_chunk == 0 && index != 0)
-			// {
-			// 	tmp_a = tmp;
-			// 	while (tmp_a->index != 0)
-			// 	{
-			// 		ft_rev_rot_a(&tmp_a);
-			// 	}
-			// 	tmp = tmp_a;
-			// }
 		}
 		chunk--;
 		index += 50;		
 	}
-		ft_sort_b2(index, b, &tmp);
-	
-	// FT_SORT_LAST:
-	// size_chunk = 50;
-	// while (size_chunk)
-	// {
-	// 	ft_rotate_a(&tmp);
-	// 	size_chunk--;
-	// }
+	ft_sort_b2(b, &tmp);
 	*a = tmp;
 }
 

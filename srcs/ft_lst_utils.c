@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 14:44:01 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/06/21 13:52:28 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/21 16:09:27 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,27 +64,20 @@ t_stack	*ft_find_best_pos2(t_stack *tmp_a, int index)
 	t_stack	*tmp;
 
 	pos = 0;
-	rev_pos = 250;
+	rev_pos = 0;
 	count = 0;
 	size = ft_stacksize(tmp_a);
 	tmp = tmp_a;
-	while (!(tmp_a->index >= index && tmp_a->index < index + 50) && count != size / 2)
+	while (!(tmp_a->index >= index && tmp_a->index < index + 50))
 	{
 		tmp_a = tmp_a->next;
 		pos++;
-		count++;
 	}
-	while (count != size / 2)
-	{
-		tmp_a = tmp_a->next;
-		count++;
-	}	
+	tmp_a = tmp;
 	while (count != size)
 	{
 		if (tmp_a->index >= index && tmp_a->index < index + 50)
-		{
 			rev_pos = count;
-		}
 		tmp_a = tmp_a->next;
 		count++;
 	}
@@ -109,7 +102,7 @@ t_stack	*ft_find_best_pos2(t_stack *tmp_a, int index)
 	return (tmp_a);
 }
 
-void	ft_sort_b2(int index, t_stack **b, t_stack **tmp_a)
+void	ft_sort_b2(t_stack **b, t_stack **tmp_a)
 {
 	t_stack	*tmp_b;
 	int count;
@@ -117,14 +110,12 @@ void	ft_sort_b2(int index, t_stack **b, t_stack **tmp_a)
 	int tmp;
 
 	count = 0;
-	//tmp = index + 49;
-	tmp = 500;
+	tmp = 499;
 	tmp_b = *b;
-	while (tmp != index)
+	while (tmp != 0)
 	{
 		pos = 0;
 		tmp_b = *b;
-		
 		while (tmp_b->index != tmp)
 		{
 			tmp_b = tmp_b->next;
@@ -152,5 +143,5 @@ void	ft_sort_b2(int index, t_stack **b, t_stack **tmp_a)
 			tmp--;
 		}
 	}
-		ft_push_a(tmp_a, b);
+	ft_push_a(tmp_a, b);
 }
