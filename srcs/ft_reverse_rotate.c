@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 14:35:51 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/06/19 18:50:21 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/20 16:49:03 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_rev_rot_a(t_stack **a)
 {
-    t_stack	*tmp;
+	t_stack	*tmp;
 	t_stack	*new;
 
 	tmp = *a;
@@ -30,7 +30,7 @@ void	ft_rev_rot_a(t_stack **a)
 
 void	ft_rev_rot_b(t_stack **b)
 {
-    t_stack	*tmp;
+	t_stack	*tmp;
 	t_stack	*new;
 
 	tmp = *b;
@@ -41,13 +41,13 @@ void	ft_rev_rot_b(t_stack **b)
 	tmp = new->next;
 	new->next = NULL;
 	*b = tmp;
-	tmp= *b;
+	tmp = *b;
 	printf("rrb\n");
 }
 
 void	ft_rev_rot_ab(t_stack **a, t_stack **b)
 {
-    t_stack	*tmp_a;
+	t_stack	*tmp_a;
 	t_stack	*new_a;
 	t_stack	*tmp_b;
 	t_stack	*new_b;

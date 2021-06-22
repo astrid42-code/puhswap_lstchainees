@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 14:44:01 by asgaulti@st       #+#    #+#             */
-/*   Updated: 2021/06/21 16:09:27 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/21 17:18:35 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_stacksize(t_stack *stack)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (stack)
@@ -55,93 +55,27 @@ void	ft_create_index(t_stack **a)
 	}
 }
 
-t_stack	*ft_find_best_pos2(t_stack *tmp_a, int index)
+t_stack	*ft_pos(int pos, int rev_pos, t_stack *tmp_a)
 {
-	int pos;
-	int rev_pos;
-	int count;
-	int size;
-	t_stack	*tmp;
-
-	pos = 0;
-	rev_pos = 0;
-	count = 0;
-	size = ft_stacksize(tmp_a);
-	tmp = tmp_a;
-	while (!(tmp_a->index >= index && tmp_a->index < index + 50))
-	{
-		tmp_a = tmp_a->next;
-		pos++;
-	}
-	tmp_a = tmp;
-	while (count != size)
-	{
-		if (tmp_a->index >= index && tmp_a->index < index + 50)
-			rev_pos = count;
-		tmp_a = tmp_a->next;
-		count++;
-	}
-	tmp_a = tmp;
-	rev_pos = count - rev_pos;
 	if (pos <= rev_pos)
 	{
-		while (pos != 0)
-		{
+		while (pos-- != 0)
 			ft_rotate_a(&tmp_a);
-			pos--;
-		}
 	}
 	else
 	{
-		while (rev_pos > 0)
-		{
+		while (rev_pos-- > 0)
 			ft_rev_rot_a(&tmp_a);
-			rev_pos--;
-		}
 	}
 	return (tmp_a);
 }
 
-void	ft_sort_b2(t_stack **b, t_stack **tmp_a)
+void	ft_pos_sort_b(int pos, t_stack **b)
 {
-	t_stack	*tmp_b;
-	int count;
-	int pos;
-	int tmp;
-
-	count = 0;
-	tmp = 499;
-	tmp_b = *b;
-	while (tmp != 0)
-	{
-		pos = 0;
-		tmp_b = *b;
-		while (tmp_b->index != tmp)
-		{
-			tmp_b = tmp_b->next;
-			pos++;
-		}
-		if (tmp_b->index == tmp)
-		{
-			if (pos <= ft_stacksize(*b) / 2)
-			{
-				while (pos != 0)
-				{
-					ft_rotate_b(b);
-					pos--;
-				}
-			}
-			else if (pos > ft_stacksize(*b) / 2)
-			{
-				while (pos < ft_stacksize(*b))
-				{
-					ft_rev_rot_b(b);
-					pos++;
-				}
-			}
-			ft_push_a(tmp_a, b);
-			tmp--;
-		}
-	}
-	ft_push_a(tmp_a, b);
+	if (pos <= ft_stacksize(*b) / 2)
+		while (pos-- != 0)
+			ft_rotate_b(b);
+	else if (pos > ft_stacksize(*b) / 2)
+		while (pos++ < ft_stacksize(*b))
+			ft_rev_rot_b(b);
 }

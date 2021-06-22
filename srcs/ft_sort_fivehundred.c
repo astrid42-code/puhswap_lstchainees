@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 13:42:00 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/06/21 16:06:01 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/21 17:17:02 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_sort_chunk_fivehundred(t_stack **a, t_stack **b)
 {
-	int chunk;
-	int size_chunk;
-	int index;
-	t_stack *tmp_a;
-	t_stack *tmp;
+	int		chunk;
+	int		size_chunk;
+	int		index;
+	t_stack	*tmp_a;
+	t_stack	*tmp;
 
 	chunk = 10;
 	tmp = *a;
@@ -34,107 +34,65 @@ void	ft_sort_chunk_fivehundred(t_stack **a, t_stack **b)
 			size_chunk--;
 		}
 		chunk--;
-		index += 50;		
+		index += 50;
 	}
 	ft_sort_b2(b, &tmp);
 	*a = tmp;
 }
 
-t_stack	*ft_find_best_pos3(t_stack *tmp_a, int index)
+t_stack	*ft_find_best_pos2(t_stack *tmp_a, int index)
 {
-	int pos;
-	int rev_pos;
-	int count;
-	int size;
+	int		pos;
+	int		rev_pos;
+	int		count;
 	t_stack	*tmp;
 
 	pos = 0;
-	rev_pos = 250;
+	rev_pos = 0;
 	count = 0;
-	size = ft_stacksize(tmp_a);
 	tmp = tmp_a;
-	while (!(tmp_a->index >= index && tmp_a->index < index + 45) && count != size / 2)
+	while (!(tmp_a->index >= index && tmp_a->index < index + 50))
 	{
 		tmp_a = tmp_a->next;
 		pos++;
-		count++;
 	}
-	while (count != size / 2)
+	tmp_a = tmp;
+	while (count++ != ft_stacksize(tmp))
 	{
-		tmp_a = tmp_a->next;
-		count++;
-	}	
-	while (count != size)
-	{
-		if (tmp_a->index >= index && tmp_a->index < index + 45)
-		{
+		if (tmp_a->index >= index && tmp_a->index < index + 50)
 			rev_pos = count;
-		}
 		tmp_a = tmp_a->next;
-		count++;
 	}
 	tmp_a = tmp;
 	rev_pos = count - rev_pos;
-	if (pos <= rev_pos)
-	{
-		while (pos != 0)
-		{
-			ft_rotate_a(&tmp_a);
-			pos--;
-		}
-	}
-	else
-	{
-		while (rev_pos > 0)
-		{
-			ft_rev_rot_a(&tmp_a);
-			rev_pos--;
-		}
-	}
+	tmp_a = ft_pos(pos, rev_pos, tmp_a);
 	return (tmp_a);
 }
 
-void	ft_sort_b3(int index, t_stack **b, t_stack **tmp_a)
+void	ft_sort_b2(t_stack **b, t_stack **tmp_a)
 {
 	t_stack	*tmp_b;
-	int count;
-	int pos;
-	int tmp;
+	int		count;
+	int		pos;
+	int		tmp;
 
 	count = 0;
-	tmp = index + 44;
+	tmp = 499;
 	tmp_b = *b;
-	while (tmp != index)
+	while (tmp != 0)
 	{
 		pos = 0;
 		tmp_b = *b;
-		
 		while (tmp_b->index != tmp)
 		{
 			tmp_b = tmp_b->next;
 			pos++;
 		}
-		if (tmp_b->index == tmp)
+		if (tmp_b->index == tmp--)
 		{
-			if (pos <= ft_stacksize(*b) / 2)
-			{
-				while (pos != 0)
-				{
-					ft_rotate_b(b);
-					pos--;
-				}
-			}
-			else if (pos > ft_stacksize(*b) / 2)
-			{
-				while (pos < ft_stacksize(*b))
-				{
-					ft_rev_rot_b(b);
-					pos++;
-				}
-			}
+			ft_pos_sort_b(pos, b);
 			ft_push_a(tmp_a, b);
-			tmp--;
 		}
 	}
-		ft_push_a(tmp_a, b);
+	ft_push_a(tmp_a, b);
 }

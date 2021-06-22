@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 16:38:15 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/06/19 18:47:14 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/20 16:17:46 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_stack	*ft_create_a(int nbr, t_stack *stack_a)
 {
 	t_stack	*new;
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	tmp = stack_a;
 	while (stack_a != NULL && stack_a->next != NULL)
@@ -28,7 +28,7 @@ t_stack	*ft_create_a(int nbr, t_stack *stack_a)
 	new->next = NULL;
 	if (tmp == NULL)
 		tmp = new;
-	else 
+	else
 		stack_a->next = new;
 	return (tmp);
 }

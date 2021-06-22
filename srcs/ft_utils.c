@@ -6,7 +6,7 @@
 /*   By: asgaulti <asgaulti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 16:39:26 by asgaulti          #+#    #+#             */
-/*   Updated: 2021/06/20 13:47:13 by asgaulti         ###   ########.fr       */
+/*   Updated: 2021/06/22 18:39:59 by asgaulti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,10 @@ int	ft_check_doublon(long long nbr, t_stack *stack_a)
 
 int	ft_check_arg(int ac, char **av)
 {
-	int i;
+	int	i;
 	int	j;
 
 	i = 1;
-	if (ac < 2)
-		return (1);
 	while (i < ac)
 	{
 		j = 0;
@@ -71,22 +69,28 @@ int	ft_check_arg(int ac, char **av)
 	return (0);
 }
 
-void		free_lst(t_stack *stack_a)
+void	free_lst(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack	*tmp;
-	
+
 	while (stack_a)
 	{
 		tmp = stack_a->next;
 		free(stack_a);
 		stack_a = tmp;
 	}
+	while (stack_b)
+	{
+		tmp = stack_b->next;
+		free(stack_b);
+		stack_b = tmp;
+	}
 }
 
 int	ft_search_min(t_stack *stack)
 {
-	int count;
-	int tmp;
+	int	count;
+	int	tmp;
 	int	pos;
 
 	count = 0;
@@ -99,23 +103,8 @@ int	ft_search_min(t_stack *stack)
 			tmp = stack->el;
 			pos = count;
 		}
-		count++;	
+		count++;
 		stack = stack->next;
 	}
 	return (pos);
 }
-/*
-int	ft_is_sort(t_stack *stack)
-{
-	t_stack	*tmp;
-	tmp = stack;
-	while (tmp)
-	{
-		if (tmp->el < tmp->next->el)
-			tmp = tmp->next;
-		else if (tmp->el > tmp->next->el)
-			return (1);
-	}
-	return (0);
-}
- */
